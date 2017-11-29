@@ -1,0 +1,24 @@
+<ion-view>
+  <ion-content class="bgImg">
+    <div class="centerDiv">
+      <div class="row text-center">
+        <div class="col-20" ng-repeat='communityCard in communityCards track by $index'>
+          <community ng-community-card="communityCard"></community>
+        </div>
+      </div>
+      <h1 class="winnersHead">Winner: {{winnerString}}
+        <span ng-if="winners.length>1">(SPLIT POT)</span>
+      </h1>
+      <h1 class="winnersHead" ng-if="meWinner">(You {{meWinner}})
+      </h1>
+      <div class="row" ng-repeat="playersChunk in playersChunks">
+        <div class="col-50 p10" ng-repeat="player in playersChunk" ng-if="player" ng-class="{'winner-section':player.winner}">
+          <winner-player ng-player="player"></winner-player>
+        </div>
+      </div>
+      <div class="marb-30 text-center padding">
+        <a class="button btn-start" ui-sref='player'>Back</a>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

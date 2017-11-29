@@ -1,0 +1,49 @@
+<ion-view>
+    <ion-content class="bgImg">
+        <div class="">
+            <div class="marb-30 changeTab" ui-sref='tab'>
+                <button class="">
+                    <i class="fa fa-info-circle" aria-hidden="true"></i>
+                </button>
+                <h2 class="winnersHead">Player {{player.playerNo}}</h2>
+            </div>
+            <div class="row text-center" ng-click='youwin()'>
+                <div class="col-20" ng-repeat='card in communityCards track by $index'>
+                    <community ng-community-card="card"></community>
+                </div>
+            </div>
+
+            <div class="text-center marb20">
+                <player ng-player="player"></player>
+
+            </div>
+            <div class="row marb20">
+                <div class="col-50 text-center">
+                    <button class="button btn-start" ng-disabled="!player.isTurn || remainingPlayer<=1" ng-click="moveTurn()">Move</button>
+                </div>
+
+                <div class="col-50 text-center">
+                    <button class="button btn-start" ng-disabled="!player.isTurn || remainingPlayer<=1" ng-click="foldPlayer()">Fold</button>
+                </div>
+            </div>
+            <div ng-if="player.isFold" style="color:aliceblue" class="marb-30 text-center">
+                <span class="button btn-start " style="background-color:red;color:wheat">Fold</span>
+            </div>
+            <div ng-if="!player.isActive" style="color:aliceblue" class="marb-30 text-center">
+                <span class="button btn-start " style="background-color:red;color:wheat">Not Active</span>
+            </div>
+            <div ng-if="player.isDealer" style="color:aliceblue" class="marb-30 text-center">
+                <span class="button btn-start " style="background-color:orange;color:wheat"> Dealer</span>
+            </div>
+
+
+            <!-- <div class=" text-right buttonpos" ui-sref="table">
+                <button class="button">
+                        <i class="ion ion-chevron-right"></i>
+                </button>
+            </div> -->
+        </div>
+    </ion-content>
+
+
+</ion-view>

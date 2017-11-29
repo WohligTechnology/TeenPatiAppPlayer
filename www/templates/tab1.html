@@ -1,0 +1,16 @@
+<ion-view view-title="player">
+    <ion-content class="bgImg" >
+            <div class="list tabSelect player-select">
+                    
+            <label class="item item-input item-select">
+                    <div class="input-label">
+                     Dealer
+                    </div>
+                    <select ng-model="currentPlayer" ng-change="selectPlayerNo(currentPlayer)" >
+                        <option ng-repeat="p in players"  value="{{p}}" >Player{{p}}</option>
+                        
+                    </select>
+            </label>
+            </div>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,37 @@
+<div style="position:relative;">
+    
+    <div class=" text-center" ng-class="{'player-turn':player.isTurn,'not-active':!player.isActive,'player-fold':player.isFold}">
+        
+
+        <div class="row" ng-if="player.cards.length==0">
+            <div class="col col-50 ">
+                <card card='NONE' ng-style="style" width="150" height="200"> </card>
+
+            </div>
+            <div class="col col-50 ">
+                <card card='NONE' ng-style="style" width="150" height="200"> </card>
+            </div>
+        </div>
+        <div class="row" ng-if="player.cards.length==1">
+            <div class="col col-50">
+                <card card='{{player.cards[0]}}' ng-style="style" width="150" height="200"> </card>
+
+            </div>
+            <div class="col col-50">
+                <card card='NONE' ng-style="style" width="150" height="200"> </card>
+            </div>
+        </div>
+        <div class="row" ng-if="player.cards.length==2">
+            <div class="col col-50">
+                <card card='{{player.cards[0]}}' ng-style="style" width="150" height="200"> </card>
+
+            </div>
+            <div class="col col-50">
+                <card card='{{player.cards[1]}}' ng-style="style" width="150" height="200"> </card>
+            </div>
+        </div>
+
+
+        
+    </div>
+</div>

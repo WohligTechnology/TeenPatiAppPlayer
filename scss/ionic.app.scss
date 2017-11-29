@@ -1,0 +1,516 @@
+        /*
+To customize the look and feel of Ionic, you can override the variables
+in ionic's _variables.scss file.
+
+For example, you might change some of the default colors:
+
+$light:                           #fff !default;
+$stable:                          #f8f8f8 !default;
+$positive:                        #387ef5 !default;
+$calm:                            #11c1f3 !default;
+$balanced:                        #33cd5f !default;
+$energized:                       #ffc900 !default;
+$assertive:                       #ef473a !default;
+$royal:                           #886aea !default;
+$dark:                            #444 !default;
+*/
+
+        // The path for our ionicons font files, relative to the built CSS in www/css
+        $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
+        @import "www/lib/ionic/scss/ionic";
+        .bgImg {
+            background-image: url(../img/bg-added.jpg);
+            width: auto;
+            height: auto;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center right;
+        }
+
+        .mar5 {
+            margin-top: 5%;
+        }
+
+        .centerDiv {
+            height: 100vh;
+            position: relative;
+        }
+
+        .centerRow {
+            position: absolute;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            left: 50%;
+        }
+
+        .buttonpos {
+            // position: absolute;
+            // bottom: 1%;
+            // right: 1%;
+            // width: 50%;
+            // display: block;
+            margin: 20px 45px;
+            button {
+                background: transparent!important;
+            }
+            i {
+                font-size: 40px;
+                color: red;
+            }
+        }
+
+        .cardimg1 {
+            width: 80%;
+            margin: 0 auto;
+            max-width: 200px;
+            img {
+                width: 100%;
+            }
+        }
+
+        .cardimg {
+            margin: 30% auto;
+            width: 60%;
+            max-width: 100px;
+            img {
+                width: 100%;
+            }
+        }
+
+        .table-border {
+            border: 3px solid #fff; // height: 180px;
+            // width: 180px;
+            margin: 10px auto;
+            background-color: transparent;
+            display: table;
+            width: 100%;
+            height: 200px;
+        }
+
+        .platform-android .table-border {
+            border: 3px solid #fff;
+            height: 100px;
+            margin: 10px auto!important;
+            background-color: transparent!important;
+            display: table!important;
+        }
+
+        .platform-ios .table-border {
+            border: 3px solid #fff;
+            height: 100px;
+            margin: 10px auto!important;
+            background-color: transparent!important;
+            display: table!important;
+        }
+
+        .platform-ipad .table-border {
+            height: 180px;
+            width: 180px;
+        }
+
+        .dis-cell {
+            display: table-cell;
+            vertical-align: middle;
+            h2 {
+                text-align: center;
+                color: #fff !important;
+                font-size: 25px!important;
+            } // &:hover {
+            //     background-color: red;
+            // }
+            // &:active {
+            //     background-color: red;
+            // }
+            // &:focus {
+            //     background-color: red;
+            // }
+        }
+
+        .platform-ios .dis-cell {
+            h2 {
+                font-size: 20px!important;
+            }
+        }
+
+        .platform-android .dis-cell {
+            h2 {
+                font-size: 20px!important;
+            }
+        }
+
+        .mar-t {
+            margin-top: 20%;
+        }
+
+        .btn-start {
+            font-size: 25px;
+            padding: 0px 20px;
+            margin-top: 30px;
+            width: 300px;
+        }
+
+        .platform-ipad .btn-start {
+            padding: 10px 30px;
+            font-size: 30px;
+        }
+
+        .removedpopup {
+            h3 {
+                img {
+                    max-width: 35px;
+                    max-height: 35px;
+                    font-size: 20px!important;
+                }
+            }
+            .popup-title {
+                font-size: 20px;
+                padding: 0px 0px!important;
+            }
+            .popup {
+                border-radius: 5px;
+                width: 250px;
+            }
+            .popup-body {
+                background: white;
+                color: #223c4d;
+                text-align: center;
+                font-weight: 600;
+                padding: 10px 10px;
+                font-size: 20px;
+                h4 {
+                    margin: 0;
+                    font-size: 20px;
+                    color: #223c4d;
+                    font-weight: 600;
+                }
+                label {
+                    font-size: 20px;
+                }
+            }
+            .popup-head {
+                padding-top: 10px;
+                padding-bottom: 0;
+                border-bottom: none!important;
+                text-align: center;
+                background: white;
+                border-radius: 5px;
+                font-size: 20px!important;
+            }
+            .popup-buttons {
+                padding: 0;
+                min-height: 20px;
+                background: cornflowerblue!important;
+                border: none;
+                font-size: 20px;
+                button {
+                    border: none;
+                    min-height: 40px;
+                    font-size: 20px;
+                    background: cornflowerblue!important;
+                }
+            }
+        }
+
+        .platform-ipad .removedpopup {
+            h3 {
+                img {
+                    max-width: 35px;
+                    max-height: 35px;
+                    font-size: 30px!important;
+                }
+            }
+            .popup-title {
+                font-size: 30px;
+                padding: 20px 20px!important;
+            }
+            .popup {
+                border-radius: 5px;
+                width: 600px;
+            }
+            .popup-body {
+                background: white;
+                color: #223c4d;
+                text-align: center;
+                font-weight: 600;
+                padding: 30px 30px;
+                font-size: 30px;
+                h4 {
+                    margin: 0;
+                    font-size: 250px;
+                    color: #223c4d;
+                    font-weight: 600;
+                }
+                label {
+                    font-size: 25px;
+                }
+            }
+            .popup-head {
+                padding-top: 20px;
+                padding-bottom: 0;
+                border-bottom: none!important;
+                text-align: center;
+                background: white;
+                border-radius: 5px;
+                font-size: 30px!important;
+            }
+            .popup-buttons {
+                padding: 0;
+                min-height: 40px;
+                background: cornflowerblue!important;
+                border: none;
+                font-size: 30px;
+                button {
+                    border: none;
+                    min-height: 60px;
+                    font-size: 25px;
+                    background: cornflowerblue!important;
+                }
+            }
+        }
+
+        .leaveApp {
+            h3 {
+                img {
+                    max-width: 35px;
+                    max-height: 35px;
+                }
+            }
+            .popup {
+                border-radius: 5px;
+            }
+            .popup-body {
+                background: white;
+                color: #223c4d;
+                text-align: center;
+                font-weight: 600;
+                padding-bottom: 30px;
+                font-size: 14px;
+                h4 {
+                    margin: 0;
+                    font-size: 25px;
+                    color: #223c4d;
+                    font-weight: 600;
+                }
+                label {
+                    font-size: 12px;
+                }
+            }
+            .popup-head {
+                padding-top: 30px;
+                padding-bottom: 0;
+                border-bottom: none!important;
+                text-align: center;
+                background: white;
+                border-radius: 5px;
+            }
+            .popup-buttons {
+                padding: 0;
+                min-height: 40px;
+                background: white;
+                border: none;
+                button {
+                    border: none;
+                    min-height: 35px;
+                    font-size: 12px;
+                }
+            }
+        }
+
+        .players {
+            img {}
+            h2 {
+                color: white;
+                margin-bottom: 20px!important;
+                font-size: 20px;
+            }
+        }
+
+        .platform-ipad .players {
+            margin: 10px;
+            h2 {
+                font-size: 30px;
+            }
+        }
+
+        .playerimg {
+            width: 60%;
+        }
+
+        .selected {
+            border: 3px solid orangered;
+        }
+
+        .playerimg {
+            width: 100%;
+            img {
+                width: 60%;
+            }
+            h1 {
+                color: white;
+                margin-bottom: 20px!important;
+            }
+        }
+
+        .dummydiv {
+            height: 10px;
+        }
+
+        .rel {
+            position: relative;
+        }
+
+        .playerfold {
+            color: white;
+            position: absolute;
+            background: rgba(128, 128, 128, 0.71);
+            transform: translate(-50%, -50%);
+            top: 35%;
+            left: 50%;
+            font-size: 20px;
+        }
+
+        .platform-ipad .playerfold {
+            font-size: 26px;
+            padding: 10px 20px;
+            top: 40%;
+        }
+
+        .cardbtn {
+            position: absolute;
+            transform: translate(-50%, -50%);
+            button {
+                font-size: 20px;
+                padding: 0px 20px;
+                margin-top: 30px;
+                width: 100%;
+            }
+        }
+
+        .platform-ipad .cardbtn {
+            button {
+                font-size: 30px;
+                padding: 10px 30px;
+                margin-top: 30px;
+                width: 100%;
+            }
+        }
+
+        .card1-top {
+            top: 36%;
+            left: 30%;
+        }
+
+        .platform-ipad .card1-top {
+            top: 44%;
+            left: 30%;
+        }
+
+        .card2-top {
+            top: 36%;
+            left: 80%;
+        }
+
+        .platform-ipad .card2-top {
+            top: 44%;
+            right: 2%;
+        }
+
+        .back-color {
+            background-color: rgba(248, 248, 248, 0.7) !important;
+        }
+
+        .backgroundcl {
+            background: red;
+        }
+
+        .platform-ipad .player-select {
+            width: 50%;
+            display: block;
+            margin: 20px 45px;
+            .input-label {
+                font-size: 24px!important;
+                color: white!important;
+            }
+            .item {
+                background-color: transparent!important;
+                color: white!important;
+                font-size: 16px!important;
+            }
+            .item-select select {
+                font-size: 24px!important;
+            }
+        }
+
+        .player-select {
+            width: 60%;
+            display: block;
+            margin: 20px 45px;
+            .input-label {
+                font-size: 16px!important;
+                color: white!important;
+            }
+            .item {
+                background-color: transparent!important;
+                color: white!important;
+                font-size: 16px!important;
+            }
+            .item-select select {
+                font-size: 16px!important;
+                border-radius: 0px!important;
+                direction: ltr!important;
+            }
+        }
+
+        @media only screen and (max-width:800px) and (min-width:1280px) {
+            .table-border {
+                border: 3px solid #fff; // height: 180px;
+                // width: 180px;
+                margin: 10px auto;
+                background-color: transparent;
+                display: table;
+                width: 100%;
+                height: 200px;
+            }
+        }
+
+        .floatright {
+            float: right;
+        }
+
+        .marb20 {
+            margin-bottom: 20px;
+        }
+
+        .tabSelect {
+            margin: 50px auto!important;
+        }
+
+        .changeTab {
+            button {
+                color: white;
+                font-size: 30px;
+                float: right;
+            }
+        }
+
+        .winnersHead {
+            font-size: 30px;
+            color: white;
+            text-align: center;
+            padding-bottom: 20px;
+        }
+
+        .item.item-input input.passwordtext {
+            font-size: 20px;
+            color: white;
+            padding-left: 20px;
+        }
+
+        .p10 {
+            padding: 10px;
+        }
+
+        .winner-section {
+            background: rgba(220, 117, 0, 0.44);
+            border-radius: 20px;
+        }
