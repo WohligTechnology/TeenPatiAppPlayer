@@ -26,7 +26,7 @@ $dark:                            #444 !default;
             background-repeat: no-repeat;
             background-position: center right;
         }
-
+          
         .mar5 {
             margin-top: 5%;
         }
@@ -340,6 +340,12 @@ $dark:                            #444 !default;
             border: 3px solid orangered;
         }
 
+        @media (min-width: 680px) {
+            .custom-modal-page.modal {
+                height: 0px;
+            }
+        }
+        
         .playerimg {
             width: 100%;
             img {

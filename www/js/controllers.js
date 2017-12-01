@@ -7,7 +7,7 @@ angular.module('starter.controllers', [])
 
 
   .controller('WinnerCtrl', function ($scope, $stateParams, apiService, $state, selectPlayer) {
-    io.socket.off("Winner", playerCtrlSocket.winner);
+    io.socket.off("showWinner", playerCtrlSocket.winner);
     io.socket.off("Update", playerCtrlSocket.update);
 
     $scope.showWinner = function () {
@@ -44,16 +44,46 @@ angular.module('starter.controllers', [])
 
 
   })
-  .controller('PlayerCtrl', function ($scope, $stateParams, selectPlayer, apiService, $interval, $state) {
-
+  .controller('PlayerCtrl', function ($scope, $stateParams, selectPlayer, apiService, $interval, $state, $ionicModal) {
+    
     io.socket.off("Update", winnerCtrlSocket.update);
 
+    //io.socket.off("Update", winnerCtrlSocket.update);  
+    io.socket.on("sideShow", function (data) {
+      if (data.data.toPlayer.playerNo == selectPlayer.getPlayer()) {
+        $scope.modal.show();
+      }
+    });
+
+    $scope.sideShow = function () {
+      apiService.sideShow(function (data) {});
+    }
+   
+    //io.socket.off("Update", winnerCtrlSocket.update);
+    // Modal Actions
+    $scope.confirmModalOk = function () {
+      apiService.doSideShow(function (data) {});
+    }
+    $ionicModal.fromTemplateUrl('templates/modal/sure.html', {
+      scope: $scope,
+      //size:sm,
+      animation: 'slide-in-up'
+    }).then(function (modal) {
+      $scope.modal = modal;
+      // $scope.modal.show();
+    });
+
+    $scope.confirmModalClose = function () {
+      $scope.moveTurn();
+      $scope.modal.hide();
+    };
 
 
     playerCtrlSocket.winner = function (data) {
+      console.log("got Winner");
       $state.go('winner');
     };
-    io.socket.on("Winner", playerCtrlSocket.winner);
+   
 
 
     playerCtrlSocket.update = function (data) {
@@ -61,7 +91,7 @@ angular.module('starter.controllers', [])
       $scope.$apply();
     };
     io.socket.on("Update", playerCtrlSocket.update);
-
+    io.socket.on("showWinner", playerCtrlSocket.winner); 
     $scope.getTabDetail = function () {
       apiService.getAll(compileData);
     };
@@ -72,6 +102,9 @@ angular.module('starter.controllers', [])
       $scope.player = _.find(data.playerCards, function (player) {
         return player.playerNo == selectPlayer.getPlayer();
       });
+      $scope.showWinner = data.showWinner;
+
+      $scope.gameType = data.currentGameType;
       $scope.communityCards = data.communityCards;
       $scope.remainingPlayer = _.filter(data.playerCards, function (player) {
         return player.isActive && !player.isFold;
@@ -81,6 +114,10 @@ angular.module('starter.controllers', [])
       }
     }
 
+    $scope.makeSeen = function () {
+
+      apiService.makeSeen(function (data) {});
+    };
 
     $scope.moveTurn = function () {
       $scope.player.isTurn = true;

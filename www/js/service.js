@@ -41,8 +41,23 @@ myApp.factory('apiService', function ($http, $q, $timeout) {
       $http.post(adminurl + 'Player/fold').then(function (data) {
         callback(data);
       });
+    },
+    doSideShow: function (callback) {
+      $http.post(adminurl + 'Player/doSideShow').then(function (data) {
+        callback(data);
+      });
+    },
+    sideShow: function (callback) {
+      $http.post(adminurl + 'Player/sideShow', {}).then(function (data) {
+        callback(data.data);
+      });
+    },
+    makeSeen: function(callback){
+      $http.post(adminurl + 'Player/makeSeen', {}).then(function (data) {
+          callback(data.data);
+      });
+  },
 
-    }
   };
 });
 
@@ -106,9 +121,20 @@ myApp.directive('player', function () {
     restrict: 'E',
     replace: false,
     scope: {
-      player: "=ngPlayer"
+      player: "=ngPlayer",
+      gameType: "=ngGameType"
     },
     templateUrl: 'templates/directive/player.html',
     link: function ($scope, element, attr) {}
   };
+})
+
+myApp.filter('showCard', function(){
+  return function(input, player){
+        if(player.isBlind){
+             return 'DONE' 
+        }else{
+            return input;
+        }
+  }
 })

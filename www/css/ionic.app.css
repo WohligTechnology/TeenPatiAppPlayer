@@ -10122,6 +10122,10 @@ a.button {
 .selected {
   border: 3px solid orangered; }
 
+@media (min-width: 680px) {
+  .custom-modal-page.modal {
+    height: 0px; } }
+
 .playerimg {
   width: 100%; }
   .playerimg img {

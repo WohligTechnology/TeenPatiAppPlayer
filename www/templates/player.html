@@ -14,12 +14,12 @@
             </div> -->
 
             <div class="text-center marb20">
-                <player ng-player="player"></player>
+                <player ng-player="player" ng-game-type = "gameType"></player>
             </div>
             <div class="row marb20">
                 <div class="col-25 text-center">
                     <div class="padding-horizontal">
-                        <button class="button button-light button-block btn-start" ng-disabled="!player.isTurn || remainingPlayer<=1" ng-click="moveTurn()">Move</button>
+                        <button class="button button-light button-block btn-start" ng-disabled="!player.isTurn || remainingPlayer<=1" ng-click="moveTurn()">Chal</button>
                     </div>
                 </div>
 
@@ -29,13 +29,14 @@
                     </div>
                 </div>
                 <div class="col-25 text-center">
-                    <div class="padding-horizontal">
-                        <button class="button button-light button-block btn-start" ng-disabled="!player.isTurn || remainingPlayer<=1" ng-click="moveTurn()">Sideshow</button>
+                    <div class="padding-horizontal"> 
+                        <button class="button button-light button-block btn-start" ng-disabled="(!player.isTurn ? true : showWinner) || remainingPlayer<=1" ng-click="sideShow()">Sideshow</button>
                     </div>
                 </div>
                 <div class="col-25 text-center">
                     <div class="padding-horizontal">
-                        <button class="button button-light button-block btn-start" ng-disabled="!player.isTurn || remainingPlayer<=1" ng-click="foldPlayer()">Chal</button>
+                         
+                        <button class="button button-light button-block btn-start" ng-disabled="(!player.isTurn ? true : !player.isBlind)  || remainingPlayer<=1 " ng-click="makeSeen()">Seen</button>
                     </div>
                 </div>
             </div>
