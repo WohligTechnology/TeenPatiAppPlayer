@@ -73,8 +73,10 @@ angular.module('starter.controllers', [])
       // $scope.modal.show();
     });
 
-    $scope.confirmModalClose = function () {
+    $scope.confirmModalClose = function (param) {
+      if(param != 'onlyClose'){
       $scope.moveTurn();
+      }
       $scope.modal.hide();
     };
 
