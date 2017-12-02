@@ -401,11 +401,16 @@ $dark:                            #444 !default;
             }
         }
         
+        .modal-action-for {
+            color: $assertive;
+            font-size: 1.2em;
+        }
+        
         .modal-sure {
             text-align: center;
             padding: 55px 20px;
         }
-        
+
         .card1-top {
             top: 36%;
             left: 30%;
