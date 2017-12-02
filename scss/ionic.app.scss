@@ -400,7 +400,12 @@ $dark:                            #444 !default;
                 width: 100%;
             }
         }
-
+        
+        .modal-sure {
+            text-align: center;
+            padding: 55px 20px;
+        }
+        
         .card1-top {
             top: 36%;
             left: 30%;
