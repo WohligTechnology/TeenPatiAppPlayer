@@ -52,11 +52,11 @@ myApp.factory('apiService', function ($http, $q, $timeout) {
         callback(data.data);
       });
     },
-    makeSeen: function(callback){
+    makeSeen: function (callback) {
       $http.post(adminurl + 'Player/makeSeen', {}).then(function (data) {
-          callback(data.data);
+        callback(data.data);
       });
-  },
+    },
 
   };
 });
@@ -129,12 +129,29 @@ myApp.directive('player', function () {
   };
 })
 
-myApp.filter('showCard', function(){
-  return function(input, player){
-        if(player.isBlind){
-             return 'DONE' 
-        }else{
-            return input;
-        }
+myApp.filter('showCard', function () {
+  return function (input, player) {
+    if (player.isBlind) {
+      return 'DONE'
+    } else {
+      return input;
+    }
   }
+})
+
+myApp.directive('joker', function () {
+  return {
+    restrict: 'E',
+    replace: false,
+    scope: {
+      gameType: "=ngGameType"
+    },
+    templateUrl: '/templates/directive/jokerCard.html',
+    link: function ($scope, element, attr) {
+      $scope.style = {
+        "margin-left": "10px"
+      }
+
+    }
+  };
 })
