@@ -637,6 +637,7 @@ $dark:                            #444 !default;
         .player-not-active {
             justify-content: center;
             display: flex;
+            min-height: 100vh;
             align-items: center;
             margin: 0 auto;
             flex: 1;
@@ -663,7 +664,7 @@ $dark:                            #444 !default;
         .all-in {
             background: linear-gradient(#ffe22d, #f40300);
             font-size: 40px;
-            margin: 20px 0 15px;
+            margin: 60px 0;
             letter-spacing: 7px;
             line-height: 1.2;
             width: 100%;
@@ -752,7 +753,7 @@ $dark:                            #444 !default;
             position: relative;
             z-index: 1;
             button.button {
-                background: red;
+                background: #0537f6;
             }
         }
         

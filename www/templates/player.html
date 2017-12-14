@@ -17,7 +17,13 @@
                     <span class="dealer" ng-if="player.isDealer">D</span>
                 </h2>
             </div>
-            <div class="row mr-tb30">
+            <div class="all-in text-center mr-tb30" ng-if="player.isFold">
+                Fold
+            </div>
+            <div class="all-in text-center mr-tb30" ng-if="!player.isActive">
+                Not Active
+            </div>
+            <div class="row mr-tb30" ng-if="!(player.isFold)">
                 <div class="col-25 text-center">
                     <div class="padding-horizontal">
                         <button class="button button-block btn-start" ng-disabled="!player.isTurn || remainingPlayer<=1" ng-click="moveTurn()">Chaal</button>
@@ -40,15 +46,12 @@
                     </div>
                 </div>
             </div>
-            <div ng-if="player.isFold" style="color:aliceblue" class="marb-30 text-center">
-                <span class="button btn-start " style="background-color:red;color:wheat">Fold</span>
-            </div>
-            <div ng-if="!player.isActive" style="color:aliceblue" class="marb-30 text-center">
-                <span class="button btn-start " style="background-color:red;color:wheat">Not Active</span>
-            </div>
         </div>
-        <div class="text-center marb20">
+        <div class="text-center marb20" ng-hide="player.isFold">
             <player ng-player="player" ng-game-type="gameType"></player>
         </div>
+         <div class="player-not-active" ng-if="!player.isActive">
+                <span>Not Active</span>
+            </div>
     </ion-content>
 </ion-view>

@@ -10360,6 +10360,7 @@ pre {
 .player-not-active {
   justify-content: center;
   display: flex;
+  min-height: 100vh;
   align-items: center;
   margin: 0 auto;
   flex: 1;
@@ -10384,7 +10385,7 @@ pre {
 .all-in {
   background: linear-gradient(#ffe22d, #f40300);
   font-size: 40px;
-  margin: 20px 0 15px;
+  margin: 60px 0;
   letter-spacing: 7px;
   line-height: 1.2;
   width: 100%;
@@ -10461,7 +10462,7 @@ pre {
   position: relative;
   z-index: 1; }
   .stack-button-holder button.button {
-    background: red; }
+    background: #0537f6; }
 
 card[card=NONE] {
   opacity: 0.5; }

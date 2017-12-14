@@ -5,17 +5,17 @@
         
         <div class="row" ng-if="player.cards.length==0">
             <div class="col col-30 ">
-                <card card='NONE' ng-style="style" width="150" height="200"> </card>
+                <card card='NONE' ng-style="style" width="200" height="250"> </card>
 
             </div>
             <div class="col col-30 ">
-                <card card='NONE' ng-style="style" width="150" height="200"> </card>
+                <card card='NONE' ng-style="style" width="200" height="250"> </card>
             </div>
             <div class="col col-30 " ng-if="gameType.totalCards >= 3">
-                <card card='NONE' ng-style="style" width="150" height="200"> </card>
+                <card card='NONE' ng-style="style" width="200" height="250"> </card>
             </div>
             <div class="col col-30 " ng-if="gameType.totalCards >= 4">
-                <card card='NONE' ng-style="style" width="150" height="200"> </card>
+                <card card='NONE' ng-style="style" width="200" height="250"> </card>
             </div>
             <div class="col col-30 " ng-if="gameType.name == 'Joker'">
                     <joker  ng-game-type = "gameType"></joker>
@@ -24,17 +24,17 @@
         
         <div class="row" ng-if="player.cards.length==1">
             <div class="col col-30">
-                <card card='{{player.cards[0] | showCard : player}}' ng-style="style" width="150" height="200"> </card>
+                <card card='{{player.cards[0] | showCard : player}}' ng-style="style" width="200" height="250"> </card>
 
             </div>
             <div class="col col-30">
-                <card card='NONE' ng-style="style" width="150" height="200"> </card>
+                <card card='NONE' ng-style="style" width="200" height="250"> </card>
             </div>
             <div class="col col-30" ng-if="gameType.totalCards >= 3">
-                <card card='NONE' ng-style="style" width="150" height="200"> </card>
+                <card card='NONE' ng-style="style" width="200" height="250"> </card>
             </div>
             <div class="col col-30" ng-if="gameType.totalCards >= 4">
-                <card card='NONE' ng-style="style" width="150" height="200"> </card>
+                <card card='NONE' ng-style="style" width="200" height="250"> </card>
             </div>
             <div class="col col-30 " ng-if="gameType.name == 'Joker'">
                     <joker  ng-game-type = "gameType"></joker>
@@ -42,17 +42,17 @@
         </div>
         <div class="row" ng-if="player.cards.length==2">
             <div class="col col-30">
-                <card card='{{player.cards[0] | showCard : player}}' ng-style="style" width="150" height="200"> </card>
+                <card card='{{player.cards[0] | showCard : player}}' ng-style="style" width="200" height="250"> </card>
 
             </div>
             <div class="col col-30">
-                <card card='{{player.cards[1] | showCard : player}}' ng-style="style" width="150" height="200"> </card>
+                <card card='{{player.cards[1] | showCard : player}}' ng-style="style" width="200" height="250"> </card>
             </div>
             <div class="col col-30" ng-if="gameType.totalCards >= 3">
-                <card card='NONE' ng-style="style" width="150" height="200"> </card>
+                <card card='NONE' ng-style="style" width="200" height="250"> </card>
             </div>
             <div class="col col-30" ng-if="gameType.totalCards >= 4">
-                <card card='NONE' ng-style="style" width="150" height="200"> </card>
+                <card card='NONE' ng-style="style" width="200" height="250"> </card>
             </div>
             <div class="col col-30 " ng-if="gameType.name == 'Joker'">
                 <joker  ng-game-type = "gameType"></joker>
@@ -60,16 +60,16 @@
         </div>
         <div class="row" ng-if="player.cards.length==3">
             <div class="col col-30">
-                <card card='{{player.cards[0] | showCard : player}}' ng-style="style" width="150" height="200"> </card>
+                <card card='{{player.cards[0] | showCard : player}}' ng-style="style" width="200" height="250"> </card>
             </div>
             <div class="col col-30">
-                <card card='{{player.cards[1] | showCard : player}}' ng-style="style" width="150" height="200"> </card>
+                <card card='{{player.cards[1] | showCard : player}}' ng-style="style" width="200" height="250"> </card>
             </div>
             <div class="col col-30" ng-if="gameType.totalCards >= 3">
-                <card card='{{player.cards[2] | showCard : player}}' ng-style="style" width="150" height="200"> </card>
+                <card card='{{player.cards[2] | showCard : player}}' ng-style="style" width="200" height="250"> </card>
             </div>
             <div class="col col-30" ng-if="gameType.totalCards >= 4">
-                <card card='NONE' ng-style="style" width="150" height="200"> </card>
+                <card card='NONE' ng-style="style" width="200" height="250"> </card>
             </div>
             <div class="col col-30 " ng-if="gameType.name == 'Joker'">
                     <joker  ng-game-type = "gameType"></joker>
@@ -77,21 +77,49 @@
         </div>
         <div class="row" ng-if="player.cards.length==4">
             <div class="col col-30">
-                <card card='{{player.cards[0] | showCard : player}}' ng-style="style" width="150" height="200"> </card>
+                <card card='{{player.cards[0] | showCard : player}}' ng-style="style" width="200" height="250"> </card>
 
             </div>
             <div class="col col-30">
-                <card card='{{player.cards[1] | showCard : player}}' ng-style="style" width="150" height="200"> </card>
+                <card card='{{player.cards[1] | showCard : player}}' ng-style="style" width="200" height="250"> </card>
             </div>
             <div class="col col-30" ng-if="gameType.totalCards >= 3">
-                <card card='{{player.cards[2] | showCard : player}}' ng-style="style" width="150" height="200"> </card>
+                <card card='{{player.cards[2] | showCard : player}}' ng-style="style" width="200" height="250"> </card>
             </div>
             <div class="col col-30" ng-if="gameType.totalCards >= 4">
-                <card card='{{player.cards[3] | showCard : player}}' ng-style="style" width="150" height="200"> </card>
+                <card card='{{player.cards[3] | showCard : player}}' ng-style="style" width="200" height="250"> </card>
             </div>
             <div class="col col-30 " ng-if="gameType.name == 'Joker'">
                     <joker  ng-game-type = "gameType"></joker>
             </div>
         </div>
+    </div>
+</div>
+
+
+
+<div class="padding-horizontal">
+    <div class="text-center stack-button-holder">
+        <button class="button" on-tap="toggleStack();">
+            <span ng-if="!isStack.value">Stack</span>
+            <span ng-if="isStack.value">Unstack</span>
+        </button>
+    </div>
+    <div class="text-center bottom-cards" ng-class="{'player-turn':player.isTurn,'not-active':!player.isActive,'player-fold':player.isFold}">
+        <div class="row">
+            <div class="col-50" ng-if="!isStack.value">
+                <animated-card card="{{player.cards[0]}}" ng-if="player.cards.length > 0"></animated-card>
+            </div>
+            <div class="col-50" ng-if="!isStack.value">
+                <animated-card card="{{player.cards[1]}}" ng-if="player.cards.length > 1"></animated-card>
+            </div>
+            <div class="col-50 join-one" ng-if="isStack.value">
+                <animated-card-stack card="{{player.cards[0]}}" player="player" ng-if="player.cards.length > 0"></animated-card-stack>
+            </div>
+            <div class="col-50 join-two" ng-if="isStack.value">
+                <animated-card-stack card="{{player.cards[1]}}" player="player" ng-if="player.cards.length > 1"></animated-card-stack>
+            </div>
+        </div>
+
     </div>
 </div>
