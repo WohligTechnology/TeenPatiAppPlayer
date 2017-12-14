@@ -1,42 +1,42 @@
 <ion-view>
     <ion-content class="bgImg">
         <div class="">
-            <div class="marb-30 changeTab" ui-sref='tab'>
+            <!--<div class="marb-30 changeTab" ui-sref='tab'>
                 <button class="">
                     <i class="fa fa-info-circle" aria-hidden="true"></i>
                 </button>
                 <h2 class="winnersHead">Player {{player.playerNo}}</h2>
+            </div>-->
+            <div class="logo-left pull-left">
+                <img src="img/logo.png" alt="" class="full-image">
             </div>
-            <!-- <div class="row text-center" ng-click='youwin()'>
-                <div class="col-20" ng-repeat='card in communityCards track by $index'>
-                    <community ng-community-card="card"></community>
-                </div>
-            </div> -->
-
-            <div class="text-center marb20">
-                <player ng-player="player" ng-game-type = "gameType"></player>
+            <div class="marb-30 changeTab text-center">
+                <h2 class="winnersHead">
+                    <img src="img/title.png" alt="">
+                    <span class="player-number">{{player.playerNo}}</span>
+                    <span class="dealer" ng-if="player.isDealer">D</span>
+                </h2>
             </div>
-            <div class="row marb20">
+            <div class="row mr-tb30">
                 <div class="col-25 text-center">
                     <div class="padding-horizontal">
-                        <button class="button button-light button-block btn-start" ng-disabled="!player.isTurn || remainingPlayer<=1" ng-click="moveTurn()">Chal</button>
-                    </div>
-                </div>
-
-                <div class="col-25 text-center">
-                    <div class="padding-horizontal">
-                        <button class="button button-light button-block btn-start" ng-disabled="!player.isTurn || remainingPlayer<=1" ng-click="foldPlayer()">Fold</button>
-                    </div>
-                </div>
-                <div class="col-25 text-center">
-                    <div class="padding-horizontal"> 
-                        <button class="button button-light button-block btn-start" ng-disabled="(!player.isTurn ? true : showWinner) || remainingPlayer<=1" ng-click="sideShow()">Sideshow</button>
+                        <button class="button button-block btn-start" ng-disabled="!player.isTurn || remainingPlayer<=1" ng-click="moveTurn()">Chaal</button>
                     </div>
                 </div>
                 <div class="col-25 text-center">
                     <div class="padding-horizontal">
-                         
-                        <button class="button button-light button-block btn-start" ng-disabled="(!player.isTurn ? true : !player.isBlind)  || remainingPlayer<=1 " ng-click="makeSeen()">Seen</button>
+                        <button class="button button-block btn-start" ng-disabled="!player.isTurn || remainingPlayer<=1" ng-click="foldPlayer()">Fold</button>
+                    </div>
+                </div>
+                <div class="col-25 text-center">
+                    <div class="padding-horizontal">
+                        <button class="button button-block btn-start" ng-disabled="(!player.isTurn ? true : showWinner) || remainingPlayer<=1" ng-click="sideShow()">Sideshow</button>
+                    </div>
+                </div>
+                <div class="col-25 text-center">
+                    <div class="padding-horizontal">
+                        <button class="button button-block btn-start" ng-disabled="(!player.isTurn ? true : !player.isBlind)  || remainingPlayer<=1 "
+                            ng-click="makeSeen()">Seen</button>
                     </div>
                 </div>
             </div>
@@ -46,11 +46,9 @@
             <div ng-if="!player.isActive" style="color:aliceblue" class="marb-30 text-center">
                 <span class="button btn-start " style="background-color:red;color:wheat">Not Active</span>
             </div>
-            <div ng-if="player.isDealer" style="color:aliceblue" class="marb-30 text-center">
-                <span class="button btn-start " style="background-color:orange;color:wheat"> Dealer</span>
-            </div>
+        </div>
+        <div class="text-center marb20">
+            <player ng-player="player" ng-game-type="gameType"></player>
         </div>
     </ion-content>
-
-
 </ion-view>
