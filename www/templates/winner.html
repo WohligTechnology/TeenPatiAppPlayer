@@ -1,11 +1,6 @@
-<ion-view>
+<!--<ion-view>
   <ion-content class="bgImg">
     <div class="centerDiv">
-      <!-- <div class="row text-center">
-        <div class="col-20" ng-repeat='communityCard in communityCards track by $index'>
-          <community ng-community-card="communityCard"></community>
-        </div>
-      </div> -->
       <h1 class="winnersHead">Winner: {{winnerString}}
         <span ng-if="winners.length>1">(SPLIT POT)</span>
       </h1>
@@ -21,4 +16,12 @@
       </div>
     </div>
   </ion-content>
-</ion-view>
+</ion-view>-->
+
+<ion-modal-view class="show-page custom-modal-page ">
+  <ion-content>
+    <div class="all-in text-center" ng-class="isWinner">
+      {{isWinner}}
+    </div>
+  </ion-content>
+</ion-modal-view>
