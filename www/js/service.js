@@ -106,7 +106,7 @@ myApp.directive('winnerPlayer', function () {
     templateUrl: 'templates/directive/winnerPlayer.html',
     link: function ($scope, element, attr) {}
   };
-})
+});
 
 myApp.directive('player', function ($ionicGesture) {
   return {
@@ -126,7 +126,7 @@ myApp.directive('player', function ($ionicGesture) {
       };
     }
   };
-})
+});
 
 myApp.filter('showCard', function () {
   return function (input, player) {
@@ -136,7 +136,7 @@ myApp.filter('showCard', function () {
       return input;
     }
   }
-})
+});
 
 myApp.directive('joker', function () {
   return {
@@ -154,6 +154,7 @@ myApp.directive('joker', function () {
     }
   };
 })
+
 var i = 0;
 myApp.directive('animatedCard', function ($ionicGesture, $timeout) {
   return {

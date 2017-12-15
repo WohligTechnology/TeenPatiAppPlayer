@@ -598,13 +598,12 @@ $dark:                            #444 !default;
         }
         
         .button {
-            background: linear-gradient(#f8cd32, #c68139);
             font-size: 20px;
             color: #fff;
             text-transform: uppercase;
             font-weight: 800;
             letter-spacing: 1px;
-            border: 3px solid #d2c1ae;
+            border: 3px solid #d2c1ae !important;
             border-radius: 10px;
             max-width: 200px;
             margin: 0 auto;
@@ -622,6 +621,10 @@ $dark:                            #444 !default;
             }
         }
         
+        .button-golden {
+            background: linear-gradient(#f8cd32, #c68139);
+        }
+        
         .join-cards {
             position: relative;
             width: 100%;
@@ -632,16 +635,33 @@ $dark:                            #444 !default;
                 width: 250px;
             }
             .join-one {
-                left: 36%;
+                left: 42%;
+                transform: translateX(-42%);
             }
             .join-two {
-                left: 42%;
+                left: 48%;
+                transform: translateX(-48%);
             }
             .join-three {
-                left: 48%;
+                left: 54%;
+                transform: translateX(-54%);
             }
             .join-four {
-                left: 54%;
+                left: 60%;
+                transform: translateX(-60%);
+            }
+        }
+        
+        .join-joker {
+            margin-right: 20px;
+            float: right;
+            margin-top: -36px;
+            h4 {
+                color: #fff;
+                font-weight: 600;
+                letter-spacing: 2px;
+                font-size: 30px;
+                margin: 0;
             }
         }
         
@@ -705,6 +725,26 @@ $dark:                            #444 !default;
         
         .modal {
             background-color: transparent;
+        }
+        
+        .modal-sure {
+            background-color: #fff;
+            padding: 50px 20px;
+            height: 60vh;
+            display: table-cell;
+            width: 100vh;
+            vertical-align: middle;
+            .modal-action-for {
+                color: #ef473a;
+                font-size: 1.2em;
+            }
+            h4 {
+                font-size: 24px;
+                padding: 0 0 20px 0;
+            }
+            .fnt-24 {
+                font-size: 24px;
+            }
         }
         
         .is-Active {

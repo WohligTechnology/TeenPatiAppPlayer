@@ -26,22 +26,23 @@
             <div class="row mr-tb30" ng-if="!(player.isFold)">
                 <div class="col-25 text-center">
                     <div class="padding-horizontal">
-                        <button class="button button-block btn-start" ng-disabled="!player.isTurn || remainingPlayer<=1" ng-click="moveTurn()">Chaal</button>
+                        <button class="button button-block btn-start button-golden " ng-disabled="(!player.isTurn ? true : showWinner) || remainingPlayer<=1"
+                            ng-click="sideShow()">Sideshow</button>
                     </div>
                 </div>
                 <div class="col-25 text-center">
                     <div class="padding-horizontal">
-                        <button class="button button-block btn-start" ng-disabled="!player.isTurn || remainingPlayer<=1" ng-click="foldPlayer()">Fold</button>
+                        <button class="button button-block btn-start button-golden " ng-disabled="!player.isTurn || remainingPlayer<=1" ng-click="moveTurn()">Chaal</button>
                     </div>
                 </div>
                 <div class="col-25 text-center">
                     <div class="padding-horizontal">
-                        <button class="button button-block btn-start" ng-disabled="(!player.isTurn ? true : showWinner) || remainingPlayer<=1" ng-click="sideShow()">Sideshow</button>
+                        <button class="button button-block btn-start button-golden " ng-disabled="!player.isTurn || remainingPlayer<=1" ng-click="foldPlayer()">Fold</button>
                     </div>
                 </div>
                 <div class="col-25 text-center">
                     <div class="padding-horizontal">
-                        <button class="button button-block btn-start" ng-disabled="(!player.isTurn ? true : !player.isBlind)  || remainingPlayer<=1 "
+                        <button class="button button-block btn-start button-golden " ng-disabled="(!player.isTurn ? true : !player.isBlind)  || remainingPlayer<=1 "
                             ng-click="makeSeen()">Seen</button>
                     </div>
                 </div>
