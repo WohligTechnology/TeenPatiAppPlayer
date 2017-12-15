@@ -57,6 +57,12 @@ myApp.factory('apiService', function ($http, $q, $timeout) {
         callback(data.data);
       });
     },
+        getAdminUrl: function () {
+      return $.jStorage.get("adminurl");
+    },
+    saveAdminUrl: function (adminurl) {
+      $.jStorage.set("adminurl", adminurl);
+    }
 
   };
 });
@@ -89,20 +95,6 @@ myApp.directive('card', function () {
   };
 });
 
-myApp.directive('community', function () {
-  return {
-    restrict: 'E',
-    replace: false,
-    scope: {
-      communityCard: "=ngCommunityCard"
-    },
-    templateUrl: 'templates/directive/communityCard.html',
-    link: function ($scope, element, attr) {
-
-    }
-  };
-});
-
 myApp.directive('winnerPlayer', function () {
   return {
     restrict: 'E',
@@ -116,7 +108,7 @@ myApp.directive('winnerPlayer', function () {
   };
 })
 
-myApp.directive('player', function () {
+myApp.directive('player', function ($ionicGesture) {
   return {
     restrict: 'E',
     replace: false,
@@ -125,7 +117,14 @@ myApp.directive('player', function () {
       gameType: "=ngGameType"
     },
     templateUrl: 'templates/directive/player.html',
-    link: function ($scope, element, attr) {}
+    link: function ($scope, $element, attr) {
+      $scope.isStack = {
+        value: false
+      };
+      $scope.toggleStack = function () {
+        $scope.isStack.value = !$scope.isStack.value;
+      };
+    }
   };
 })
 

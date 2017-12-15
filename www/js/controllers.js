@@ -3,10 +3,10 @@ var winnerCtrlSocket = {};
 
 angular.module('starter.controllers', [])
 
-  .controller('AppCtrl', function ($scope, $ionicModal, $timeout) {})
+.controller('AppCtrl', function ($scope, $ionicModal, $timeout) {})
 
 
-  .controller('WinnerCtrl', function ($scope, $stateParams, apiService, $state, selectPlayer) {
+.controller('WinnerCtrl', function ($scope, $stateParams, apiService, $state, selectPlayer) {
     io.socket.off("showWinner", playerCtrlSocket.winner);
     io.socket.off("Update", playerCtrlSocket.update);
 
@@ -45,7 +45,7 @@ angular.module('starter.controllers', [])
 
   })
   .controller('PlayerCtrl', function ($scope, $stateParams, selectPlayer, apiService, $interval, $state, $ionicModal) {
-    
+
     io.socket.off("Update", winnerCtrlSocket.update);
 
     //io.socket.off("Update", winnerCtrlSocket.update);  
@@ -58,24 +58,31 @@ angular.module('starter.controllers', [])
     $scope.sideShow = function () {
       apiService.sideShow(function (data) {});
     }
-   
+
     //io.socket.off("Update", winnerCtrlSocket.update);
     // Modal Actions
     $scope.confirmModalOk = function () {
-      apiService.doSideShow(function (data) {});
-    }
-    $ionicModal.fromTemplateUrl('templates/modal/sure.html', {
-      scope: $scope,
-      //size:sm,
-      animation: 'slide-in-up'
-    }).then(function (modal) {
-      $scope.modal = modal;
-      // $scope.modal.show();
-    });
+        apiService.doSideShow(function (data) {});
+      }
+      // $ionicModal.fromTemplateUrl('templates/modal/sure.html', {
+      //   scope: $scope,
+      //   //size:sm,t    // $ionicModal.fromTemplateUrl('templates/modal/sure.html', {
+      //   scope: $scope,
+      //   //size:sm,
+      //   animation: 'slide-in-up'
+      // }).then(function (modal) {
+      //   $scope.modal = modal;
+      //   // $scope.modal.show();
+      // });
+      //   animation: 'slide-in-up'
+      // }).then(function (modal) {
+      //   $scope.modal = modal;
+      //   // $scope.modal.show();
+      // });
 
     $scope.confirmModalClose = function (param) {
-      if(param != 'onlyClose'){
-      $scope.moveTurn();
+      if (param != 'onlyClose') {
+        $scope.moveTurn();
       }
       $scope.modal.hide();
     };
@@ -85,7 +92,7 @@ angular.module('starter.controllers', [])
       console.log("got Winner");
       $state.go('winner');
     };
-   
+
 
 
     playerCtrlSocket.update = function (data) {
@@ -93,7 +100,7 @@ angular.module('starter.controllers', [])
       $scope.$apply();
     };
     io.socket.on("Update", playerCtrlSocket.update);
-    io.socket.on("showWinner", playerCtrlSocket.winner); 
+    io.socket.on("showWinner", playerCtrlSocket.winner);
     $scope.getTabDetail = function () {
       apiService.getAll(compileData);
     };
@@ -131,11 +138,16 @@ angular.module('starter.controllers', [])
     };
 
   })
-  .controller('TabCtrl', function ($scope, $stateParams, selectPlayer, $state) {
+
+.controller('TabCtrl', function ($scope, $stateParams, selectPlayer, apiService, $state) {
     $scope.players = ["1", "2", "3", "4", "5", "6", "7", "8"];
-    $scope.currentPlayer = selectPlayer.getPlayer();
-    $scope.selectPlayerNo = function (currentPlayer) {
-      selectPlayer.setPlayer(currentPlayer);
+    $scope.form = {};
+    $scope.form.adminurl = apiService.getAdminUrl();
+    $scope.form.player = selectPlayer.getPlayer();
+    $scope.saveForm = function () {
+      apiService.saveAdminUrl($scope.form.adminurl);
+      selectPlayer.setPlayer($scope.form.player);
+      window.location.href = window.location.href.split("#")[0];
     };
   })
   .controller('PlaylistCtrl', function ($scope, $stateParams) {});

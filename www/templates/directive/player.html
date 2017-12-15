@@ -1,12 +1,8 @@
-<div style="position:relative;">
-
+<!--<div style="position:relative;">
     <div class=" text-center" ng-class="{'player-turn':player.isTurn,'not-active':!player.isActive,'player-fold':player.isFold}">
-
-        
         <div class="row" ng-if="player.cards.length==0">
             <div class="col col-30 ">
                 <card card='NONE' ng-style="style" width="200" height="250"> </card>
-
             </div>
             <div class="col col-30 ">
                 <card card='NONE' ng-style="style" width="200" height="250"> </card>
@@ -18,14 +14,12 @@
                 <card card='NONE' ng-style="style" width="200" height="250"> </card>
             </div>
             <div class="col col-30 " ng-if="gameType.name == 'Joker'">
-                    <joker  ng-game-type = "gameType"></joker>
+                <joker ng-game-type="gameType"></joker>
             </div>
         </div>
-        
         <div class="row" ng-if="player.cards.length==1">
             <div class="col col-30">
                 <card card='{{player.cards[0] | showCard : player}}' ng-style="style" width="200" height="250"> </card>
-
             </div>
             <div class="col col-30">
                 <card card='NONE' ng-style="style" width="200" height="250"> </card>
@@ -37,13 +31,12 @@
                 <card card='NONE' ng-style="style" width="200" height="250"> </card>
             </div>
             <div class="col col-30 " ng-if="gameType.name == 'Joker'">
-                    <joker  ng-game-type = "gameType"></joker>
+                <joker ng-game-type="gameType"></joker>
             </div>
         </div>
         <div class="row" ng-if="player.cards.length==2">
             <div class="col col-30">
                 <card card='{{player.cards[0] | showCard : player}}' ng-style="style" width="200" height="250"> </card>
-
             </div>
             <div class="col col-30">
                 <card card='{{player.cards[1] | showCard : player}}' ng-style="style" width="200" height="250"> </card>
@@ -55,7 +48,7 @@
                 <card card='NONE' ng-style="style" width="200" height="250"> </card>
             </div>
             <div class="col col-30 " ng-if="gameType.name == 'Joker'">
-                <joker  ng-game-type = "gameType"></joker>
+                <joker ng-game-type="gameType"></joker>
             </div>
         </div>
         <div class="row" ng-if="player.cards.length==3">
@@ -72,13 +65,12 @@
                 <card card='NONE' ng-style="style" width="200" height="250"> </card>
             </div>
             <div class="col col-30 " ng-if="gameType.name == 'Joker'">
-                    <joker  ng-game-type = "gameType"></joker>
+                <joker ng-game-type="gameType"></joker>
             </div>
         </div>
         <div class="row" ng-if="player.cards.length==4">
             <div class="col col-30">
                 <card card='{{player.cards[0] | showCard : player}}' ng-style="style" width="200" height="250"> </card>
-
             </div>
             <div class="col col-30">
                 <card card='{{player.cards[1] | showCard : player}}' ng-style="style" width="200" height="250"> </card>
@@ -90,14 +82,11 @@
                 <card card='{{player.cards[3] | showCard : player}}' ng-style="style" width="200" height="250"> </card>
             </div>
             <div class="col col-30 " ng-if="gameType.name == 'Joker'">
-                    <joker  ng-game-type = "gameType"></joker>
+                <joker ng-game-type="gameType"></joker>
             </div>
         </div>
     </div>
-</div>
-
-
-
+</div>-->
 <div class="padding-horizontal">
     <div class="text-center stack-button-holder">
         <button class="button" on-tap="toggleStack();">
@@ -105,21 +94,34 @@
             <span ng-if="isStack.value">Unstack</span>
         </button>
     </div>
-    <div class="text-center bottom-cards" ng-class="{'player-turn':player.isTurn,'not-active':!player.isActive,'player-fold':player.isFold}">
-        <div class="row">
-            <div class="col-50" ng-if="!isStack.value">
-                <animated-card card="{{player.cards[0]}}" ng-if="player.cards.length > 0"></animated-card>
-            </div>
-            <div class="col-50" ng-if="!isStack.value">
-                <animated-card card="{{player.cards[1]}}" ng-if="player.cards.length > 1"></animated-card>
-            </div>
-            <div class="col-50 join-one" ng-if="isStack.value">
-                <animated-card-stack card="{{player.cards[0]}}" player="player" ng-if="player.cards.length > 0"></animated-card-stack>
-            </div>
-            <div class="col-50 join-two" ng-if="isStack.value">
-                <animated-card-stack card="{{player.cards[1]}}" player="player" ng-if="player.cards.length > 1"></animated-card-stack>
-            </div>
+</div>
+<div class="text-center bottom-cards" ng-class="{'player-turn':player.isTurn,'not-active':!player.isActive,'player-fold':player.isFold}">
+    <div class="row">
+        <div class="col" ng-if="!isStack.value && player.cards.length > 0">
+            <animated-card card="{{player.cards[0]}}"></animated-card>
         </div>
-
+        <div class="col" ng-if="!isStack.value && player.cards.length > 1">
+            <animated-card card="{{player.cards[1]}}" </animated-card>
+        </div>
+        <div class="col" ng-if="!isStack.value && player.cards.length > 2">
+            <animated-card card="{{player.cards[2]}}"></animated-card>
+        </div>
+        <div class="col" ng-if="!isStack.value && player.cards.length > 3">
+            <animated-card card="{{player.cards[3]}}"></animated-card>
+        </div>
+    </div>
+    <div class="join-cards" ng-if="isStack.value">
+        <div class="join-one join-similar" ng-if="isStack.value && player.cards.length > 0">
+            <animated-card-stack card="{{player.cards[0]}}" player="player"></animated-card-stack>
+        </div>
+        <div class="join-two join-similar" ng-if="isStack.value" ng-if="player.cards.length > 1">
+            <animated-card-stack card="{{player.cards[1]}}" player="player"></animated-card-stack>
+        </div>
+        <div class="join-three join-similar" ng-if="isStack.value && player.cards.length > 2">
+            <animated-card-stack card="{{player.cards[2]}}" player="player"></animated-card-stack>
+        </div>
+        <div class="join-four join-similar" ng-if="isStack.value && player.cards.length > 3">
+            <animated-card-stack card="{{player.cards[3]}}" player="player"></animated-card-stack>
+        </div>
     </div>
 </div>

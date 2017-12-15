@@ -1,6 +1,6 @@
 <ion-view>
     <ion-content class="bgImg">
-        <div class="">
+        <div class="player-all">
             <!--<div class="marb-30 changeTab" ui-sref='tab'>
                 <button class="">
                     <i class="fa fa-info-circle" aria-hidden="true"></i>
@@ -46,12 +46,12 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="text-center marb20" ng-hide="player.isFold">
-            <player ng-player="player" ng-game-type="gameType"></player>
-        </div>
-         <div class="player-not-active" ng-if="!player.isActive">
+            <div class="player-not-active" ng-if="!player.isActive">
                 <span>Not Active</span>
             </div>
+            <div class="text-center marb20" ng-hide="player.isFold">
+                <player ng-player="player" ng-game-type="gameType"></player>
+            </div>
+        </div>
     </ion-content>
 </ion-view>

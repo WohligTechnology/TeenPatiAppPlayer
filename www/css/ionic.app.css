@@ -10347,15 +10347,22 @@ pre {
     background: #fff;
     color: #000; }
 
-.join-one .cards-two {
-  float: right;
-  width: 200px;
-  margin-right: -60px; }
-
-.join-two .cards-two {
-  float: left;
-  width: 200px;
-  margin-left: -60px; }
+.join-cards {
+  position: relative;
+  width: 100%;
+  height: 300px; }
+  .join-cards .join-similar {
+    position: absolute;
+    top: 0;
+    width: 200px; }
+  .join-cards .join-one {
+    left: 36%; }
+  .join-cards .join-two {
+    left: 42%; }
+  .join-cards .join-three {
+    left: 48%; }
+  .join-cards .join-four {
+    left: 54%; }
 
 .player-not-active {
   justify-content: center;

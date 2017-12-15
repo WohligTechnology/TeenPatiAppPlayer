@@ -622,16 +622,27 @@ $dark:                            #444 !default;
             }
         }
         
-        .join-one .cards-two {
-            float: right;
-            width: 200px;
-            margin-right: -60px;
-        }
-        
-        .join-two .cards-two {
-            float: left;
-            width: 200px;
-            margin-left: -60px;
+        .join-cards {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            .join-similar {
+                position: absolute;
+                top: 0;
+                width: 200px;
+            }
+            .join-one {
+                left: 36%;
+            }
+            .join-two {
+                left: 42%;
+            }
+            .join-three {
+                left: 48%;
+            }
+            .join-four {
+                left: 54%;
+            }
         }
         
         .player-not-active {
