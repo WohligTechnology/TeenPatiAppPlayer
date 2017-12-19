@@ -1,32 +1,15 @@
 <ion-view>
     <ion-content class="bgImg">
-<<<<<<< HEAD
-        <div class="">
-            <div class="marb-30 changeTab" ui-sref='tab'>
-                <button class="button button-royal button-outline" ui-sref='tab'>
-                    Config
-=======
         <div class="player-all">
             <!--<div class="marb-30 changeTab" ui-sref='tab'>
                 <button class="">
                     <i class="fa fa-info-circle" aria-hidden="true"></i>
->>>>>>> c1921a85f8313f8929cd7bd6c6825b066805b464
                 </button>
                 <h2 class="winnersHead">Player {{player.playerNo}}</h2>
             </div>-->
             <div class="logo-left pull-left">
                 <img src="img/logo.png" alt="" class="full-image">
             </div>
-<<<<<<< HEAD
-            <!-- <div class="row text-center" ng-click='youwin()'>
-                <div class="col-20" ng-repeat='card in communityCards track by $index'>
-                    <community ng-community-card="card"></community>
-                </div>
-            </div> -->
-
-            <div class="text-center marb20">
-                <player ng-player="player" ng-game-type="gameType"></player>
-=======
             <div class="marb-30 changeTab text-center">
                 <h2 class="winnersHead">
                     <img src="img/title.png" alt="">
@@ -39,7 +22,6 @@
             </div>
             <div class="all-in text-center mr-tb30" ng-if="!player.isActive">
                 Not Active
->>>>>>> c1921a85f8313f8929cd7bd6c6825b066805b464
             </div>
             <div class="row mr-tb30" ng-if="!(player.isFold)">
                 <div class="col-25 text-center">
@@ -55,22 +37,12 @@
                 </div>
                 <div class="col-25 text-center">
                     <div class="padding-horizontal">
-<<<<<<< HEAD
-                        <button class="button button-light button-block btn-start" ng-disabled="(!player.isTurn ? true : showWinner) || remainingPlayer<=1"
-                            ng-click="sideShow()">Sideshow</button>
-=======
                         <button class="button button-block btn-start button-golden " ng-disabled="!player.isTurn || remainingPlayer<=1" ng-click="foldPlayer()">Fold</button>
->>>>>>> c1921a85f8313f8929cd7bd6c6825b066805b464
                     </div>
                 </div>
                 <div class="col-25 text-center">
                     <div class="padding-horizontal">
-<<<<<<< HEAD
-
-                        <button class="button button-light button-block btn-start" ng-disabled="(!player.isTurn ? true : !player.isBlind)  || remainingPlayer<=1 "
-=======
                         <button class="button button-block btn-start button-golden " ng-disabled="(!player.isTurn ? true : !player.isBlind)  || remainingPlayer<=1 "
->>>>>>> c1921a85f8313f8929cd7bd6c6825b066805b464
                             ng-click="makeSeen()">Seen</button>
                     </div>
                 </div>
