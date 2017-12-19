@@ -45,11 +45,6 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         url: '/tab',
         templateUrl: 'templates/tab.html',
         controller: 'TabCtrl'
-      })
-      .state('winner', {
-        url: '/winner',
-        templateUrl: 'templates/winner.html',
-        controller: 'WinnerCtrl'
       });
     // if none of the above states are matched, use this as the fallback
     $urlRouterProvider.otherwise('/player');

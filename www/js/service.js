@@ -57,7 +57,7 @@ myApp.factory('apiService', function ($http, $q, $timeout) {
         callback(data.data);
       });
     },
-        getAdminUrl: function () {
+    getAdminUrl: function () {
       return $.jStorage.get("adminurl");
     },
     saveAdminUrl: function (adminurl) {
@@ -188,6 +188,10 @@ myApp.directive('animatedCard', function ($ionicGesture, $timeout) {
           event.gesture.distance = distanceDifference;
           var upDistance = event.gesture.distance * -1;
           var amountUp = (cardHeight - upDistance);
+          console.log(upDistance);
+          if(upDistance >= 25){
+            console.log('seen');
+          }
           if (upDistance >= 0) {
             var dragPercent = upDistance / cardHeight * 100;
             if (dragPercent < maxDragPercent) {
@@ -255,6 +259,7 @@ myApp.directive('animatedCardStack', function ($ionicGesture) {
         var upDistance = event.gesture.distance;
         var amountUp = (cardHeight - upDistance);
         var dragPercent = upDistance / cardHeight * 100;
+        console.log(dragPercent);
         if (dragPercent < maxDragPercent) {
           var topPosition = (cardHeight - (1 * upDistance));
           $scope.player.dragCss.height = amountUp + "px";
