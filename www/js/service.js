@@ -52,11 +52,17 @@ myApp.factory('apiService', function ($http, $q, $timeout) {
         callback(data.data);
       });
     },
-    makeSeen: function(callback){
+    makeSeen: function (callback) {
       $http.post(adminurl + 'Player/makeSeen', {}).then(function (data) {
-          callback(data.data);
+        callback(data.data);
       });
-  },
+    },
+    getAdminUrl: function () {
+      return $.jStorage.get("adminurl");
+    },
+    saveAdminUrl: function (adminurl) {
+      $.jStorage.set("adminurl", adminurl);
+    }
 
   };
 });
@@ -89,20 +95,6 @@ myApp.directive('card', function () {
   };
 });
 
-myApp.directive('community', function () {
-  return {
-    restrict: 'E',
-    replace: false,
-    scope: {
-      communityCard: "=ngCommunityCard"
-    },
-    templateUrl: 'templates/directive/communityCard.html',
-    link: function ($scope, element, attr) {
-
-    }
-  };
-});
-
 myApp.directive('winnerPlayer', function () {
   return {
     restrict: 'E',
@@ -114,9 +106,9 @@ myApp.directive('winnerPlayer', function () {
     templateUrl: 'templates/directive/winnerPlayer.html',
     link: function ($scope, element, attr) {}
   };
-})
+});
 
-myApp.directive('player', function () {
+myApp.directive('player', function ($ionicGesture) {
   return {
     restrict: 'E',
     replace: false,
@@ -125,16 +117,179 @@ myApp.directive('player', function () {
       gameType: "=ngGameType"
     },
     templateUrl: 'templates/directive/player.html',
-    link: function ($scope, element, attr) {}
+    link: function ($scope, $element, attr) {
+      $scope.isStack = {
+        value: false
+      };
+      $scope.toggleStack = function () {
+        $scope.isStack.value = !$scope.isStack.value;
+      };
+    }
+  };
+});
+
+myApp.filter('showCard', function () {
+  return function (input, player) {
+    if (player.isBlind) {
+      return 'DONE'
+    } else {
+      return input;
+    }
+  }
+});
+
+myApp.directive('joker', function () {
+  return {
+    restrict: 'E',
+    replace: false,
+    scope: {
+      gameType: "=ngGameType"
+    },
+    templateUrl: '/templates/directive/jokerCard.html',
+    link: function ($scope, element, attr) {
+      $scope.style = {
+        "margin-left": "10px"
+      }
+
+    }
   };
 })
 
-myApp.filter('showCard', function(){
-  return function(input, player){
-        if(player.isBlind){
-             return 'DONE' 
-        }else{
-            return input;
+var i = 0;
+myApp.directive('animatedCard', function ($ionicGesture, $timeout) {
+  return {
+    restrict: 'E',
+    replace: false,
+    scope: true,
+    templateUrl: 'templates/directive/animatedCard.html',
+    link: function ($scope, $element, $attr) {
+      var distanceDifference = 0;
+      var event = {
+        gesture: {
+          distance: 0
         }
-  }
-})
+      };
+      $scope.card = $attr.card;
+      var cardHeight = 320;
+      var topMargin = 0;
+      var maxDragPercent = 60;
+      $timeout(function () {
+        var cardImage = $($element).find("card.animatedCard img").get(0);
+        var cardImageOpen = $($element).find("card.animatedCardOpen img").get(0);
+
+        var parentImage = $($element).find("card.animatedCard").get(0);
+        var parentImageOpen = $($element).find("card.animatedCardOpen").get(0);
+        cardImage.addEventListener('touchstart', function (e) {
+          distanceStart = e.changedTouches[0].clientY;
+        }, false);
+
+        cardImage.addEventListener('touchmove', function (e) {
+          distanceDifference = distanceStart - e.changedTouches[0].clientY;
+          event.gesture.distance = distanceDifference;
+          var upDistance = event.gesture.distance * -1;
+          var amountUp = (cardHeight - upDistance);
+          console.log(upDistance);
+          if(upDistance >= 25){
+            console.log('seen');
+          }
+          if (upDistance >= 0) {
+            var dragPercent = upDistance / cardHeight * 100;
+            if (dragPercent < maxDragPercent) {
+              var topPosition = (cardHeight - (1 * upDistance));
+              $(parentImage).css("height", amountUp + "px");
+              $(parentImage).css("top", upDistance + "px");
+              $(parentImageOpen).css("height", upDistance + "px");
+              $(parentImageOpen).css("top", (topPosition + topMargin) + "px");
+              $scope.$apply();
+            }
+          }
+
+        }, false);
+        cardImage.addEventListener('touchend', function (e) {
+          event.gesture.distance = 0;
+          $(parentImage).css("height", cardHeight + "px");
+          $(parentImageOpen).css("height", "0px");
+          $(parentImage).css("top", 0 + "px");
+          $(parentImageOpen).css("top", cardHeight + topMargin + "px");
+          $scope.$apply();
+        }, false);
+      }, 200);
+
+
+    }
+  };
+
+});
+
+myApp.directive('animatedCardStack', function ($ionicGesture) {
+  return {
+    restrict: 'E',
+    replace: false,
+    scope: {
+      player: "="
+    },
+    templateUrl: 'templates/directive/animatedCardStack.html',
+    link: function ($scope, $element, attr) {
+      $scope.card = attr.card;
+      var cardHeight = 320;
+      var topMargin = 0;
+      var maxDragPercent = 60;
+      $scope.player.dragCss = {
+        width: "100%",
+        overflow: "hidden",
+        top: "0px"
+      };
+      $scope.player.dragCssOpen = {
+        width: "100%",
+        overflow: "hidden",
+        height: "0px"
+      };
+      this.onDrag = function (event) {
+        if (!$scope.player.dragCss) {
+          $scope.player.dragCss = {
+            width: "100%",
+            overflow: "hidden",
+          };
+          $scope.player.dragCssOpen = {
+            width: "100%",
+            overflow: "hidden",
+            height: "0px"
+          };
+        }
+        var upDistance = event.gesture.distance;
+        var amountUp = (cardHeight - upDistance);
+        var dragPercent = upDistance / cardHeight * 100;
+        console.log(dragPercent);
+        if (dragPercent < maxDragPercent) {
+          var topPosition = (cardHeight - (1 * upDistance));
+          $scope.player.dragCss.height = amountUp + "px";
+          $scope.player.dragCss.top = upDistance + "px";
+          $scope.player.dragCssOpen.height = upDistance + "px";
+          $scope.player.dragCssOpen.top = (topPosition + topMargin) + "px";
+          $scope.$apply();
+        }
+      };
+      this.onDragEnd = function (event) {
+        if (!$scope.player.dragCss) {
+          $scope.player.dragCss = {
+            width: "100%",
+            overflow: "hidden",
+          };
+          $scope.player.dragCssOpen = {
+            width: "100%",
+            overflow: "hidden",
+            height: "0px"
+          };
+        }
+        $scope.player.dragCss.height = cardHeight + "px";
+        $scope.player.dragCss.top = "0px";
+        $scope.player.dragCssOpen.height = "0px";
+        $scope.player.dragCssOpen.top = cardHeight + topMargin + "px";
+        $scope.$apply();
+      };
+      $ionicGesture.on('dragdown', this.onDrag, $element);
+      $ionicGesture.on('dragend', this.onDragEnd, $element);
+
+    }
+  };
+});
