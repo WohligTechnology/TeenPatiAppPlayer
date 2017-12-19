@@ -153,10 +153,10 @@ myApp.directive('joker', function () {
 
     }
   };
-})
+});
 
 var i = 0;
-myApp.directive('animatedCard', function ($ionicGesture, $timeout) {
+myApp.directive('animatedCard', function ($ionicGesture, $timeout, apiService) {
   return {
     restrict: 'E',
     replace: false,
@@ -189,8 +189,9 @@ myApp.directive('animatedCard', function ($ionicGesture, $timeout) {
           var upDistance = event.gesture.distance * -1;
           var amountUp = (cardHeight - upDistance);
           console.log(upDistance);
-          if(upDistance >= 25){
+          if (upDistance >= 10) {
             console.log('seen');
+            apiService.makeSeen(function () {});
           }
           if (upDistance >= 0) {
             var dragPercent = upDistance / cardHeight * 100;
@@ -221,7 +222,7 @@ myApp.directive('animatedCard', function ($ionicGesture, $timeout) {
 
 });
 
-myApp.directive('animatedCardStack', function ($ionicGesture) {
+myApp.directive('animatedCardStack', function ($ionicGesture, apiService) {
   return {
     restrict: 'E',
     replace: false,
@@ -260,6 +261,10 @@ myApp.directive('animatedCardStack', function ($ionicGesture) {
         var amountUp = (cardHeight - upDistance);
         var dragPercent = upDistance / cardHeight * 100;
         console.log(dragPercent);
+        if (dragPercent > 4.5) {
+          console.log('seen');
+          apiService.makeSeen(function () {});
+        }
         if (dragPercent < maxDragPercent) {
           var topPosition = (cardHeight - (1 * upDistance));
           $scope.player.dragCss.height = amountUp + "px";
