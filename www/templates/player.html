@@ -2,8 +2,8 @@
     <ion-content class="bgImg">
         <div class="">
             <div class="marb-30 changeTab" ui-sref='tab'>
-                <button class="">
-                    <i class="fa fa-info-circle" aria-hidden="true"></i>
+                <button class="button button-royal button-outline" ui-sref='tab'>
+                    Config
                 </button>
                 <h2 class="winnersHead">Player {{player.playerNo}}</h2>
             </div>
@@ -14,7 +14,7 @@
             </div> -->
 
             <div class="text-center marb20">
-                <player ng-player="player" ng-game-type = "gameType"></player>
+                <player ng-player="player" ng-game-type="gameType"></player>
             </div>
             <div class="row marb20">
                 <div class="col-25 text-center">
@@ -29,14 +29,16 @@
                     </div>
                 </div>
                 <div class="col-25 text-center">
-                    <div class="padding-horizontal"> 
-                        <button class="button button-light button-block btn-start" ng-disabled="(!player.isTurn ? true : showWinner) || remainingPlayer<=1" ng-click="sideShow()">Sideshow</button>
+                    <div class="padding-horizontal">
+                        <button class="button button-light button-block btn-start" ng-disabled="(!player.isTurn ? true : showWinner) || remainingPlayer<=1"
+                            ng-click="sideShow()">Sideshow</button>
                     </div>
                 </div>
                 <div class="col-25 text-center">
                     <div class="padding-horizontal">
-                         
-                        <button class="button button-light button-block btn-start" ng-disabled="(!player.isTurn ? true : !player.isBlind)  || remainingPlayer<=1 " ng-click="makeSeen()">Seen</button>
+
+                        <button class="button button-light button-block btn-start" ng-disabled="(!player.isTurn ? true : !player.isBlind)  || remainingPlayer<=1 "
+                            ng-click="makeSeen()">Seen</button>
                     </div>
                 </div>
             </div>
