@@ -25,18 +25,14 @@
   <script src="lib/jStorage/jstorage.js"></script>
   <script src="lib/sails/sails.io.js"></script>
   <script>
-    var adminUUU = 'http://localhost:8081';
-    var adminurl = adminUUU + '/api/';
-    io.sails.url = adminUUU;
-
-    // var adminUUU = $.jStorage.get("adminurl");
-    // if (adminUUU) {
-    //   var adminurl = adminUUU + '/api/';
-    //   io.sails.url = adminUUU;
-    // } else {
-    //   $.jStorage.set("adminurl", "http://127.0.0.1:1337");
-    //   window.location.href = window.location.href.split("#")[0] + "#/tab";
-    // }
+    var adminUUU = $.jStorage.get("adminurl");
+    if (adminUUU) {
+      var adminurl = adminUUU + '/api/';
+      io.sails.url = adminUUU;
+    } else {
+      $.jStorage.set("adminurl", "http://127.0.0.1:1338");
+      window.location.href = window.location.href.split("#")[0] + "#/tab";
+    }
   </script>
   <!-- your app's js -->
   <script src="js/app.js"></script>
