@@ -52,16 +52,17 @@ myApp.factory('apiService', function ($http, $q, $timeout) {
         callback(data.data);
       });
     },
-    makeSeen: function (callback) {
-      $http.post(adminurl + 'Player/makeSeen', {}).then(function (data) {
-        callback(data.data);
+    makeSeen: function (playerNo) {
+      $http.post(adminurl + 'Player/makeSeen', {
+        playerNo: playerNo
+      }).then(function (data) {
       });
-    },
-    getAdminUrl: function () {
-      return $.jStorage.get("adminurl");
     },
     saveAdminUrl: function (adminurl) {
       $.jStorage.set("adminurl", adminurl);
+    },
+    getAdminUrl: function () {
+      return $.jStorage.get("adminurl");
     }
 
   };
@@ -189,9 +190,10 @@ myApp.directive('animatedCard', function ($ionicGesture, $timeout, apiService) {
           var upDistance = event.gesture.distance * -1;
           var amountUp = (cardHeight - upDistance);
           console.log(upDistance);
+          var playerNo = $.jStorage.get("player");
+          console.log(playerNo);
           if (upDistance >= 10) {
-            console.log('seen');
-            apiService.makeSeen(function () {});
+            apiService.makeSeen(playerNo);
           }
           if (upDistance >= 0) {
             var dragPercent = upDistance / cardHeight * 100;
@@ -294,7 +296,6 @@ myApp.directive('animatedCardStack', function ($ionicGesture, apiService) {
       };
       $ionicGesture.on('dragdown', this.onDrag, $element);
       $ionicGesture.on('dragend', this.onDragEnd, $element);
-
     }
   };
 });

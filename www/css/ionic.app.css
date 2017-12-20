@@ -10331,7 +10331,7 @@ pre {
   text-transform: uppercase;
   font-weight: 800;
   letter-spacing: 1px;
-  border: 3px solid #d2c1ae !important;
+  border: 3px solid #d2c1ae;
   border-radius: 10px;
   max-width: 200px;
   margin: 0 auto;
@@ -10348,6 +10348,14 @@ pre {
 
 .button-golden {
   background: linear-gradient(#f8cd32, #c68139); }
+
+.button-green {
+  background: linear-gradient(#89ff00, #33540b);
+  border-width: 0px; }
+
+.button-red {
+  background: linear-gradient(#ff0000, #520a0a);
+  border-width: 0px; }
 
 .join-cards {
   position: relative;

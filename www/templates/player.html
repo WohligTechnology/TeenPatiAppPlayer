@@ -42,8 +42,8 @@
                 </div>
                 <div class="col-25 text-center">
                     <div class="padding-horizontal">
-                        <button class="button button-block btn-start button-golden " ng-disabled="(!player.isTurn ? true : !player.isBlind)  || remainingPlayer<=1 "
-                            ng-click="makeSeen()">Seen</button>
+                        <button class="button button-block btn-start button-red " ng-if="player.isBlind" ng-disabled="(!player.isBlind)  || remainingPlayer<=1 ">Blind</button>
+                        <button class="button button-block btn-start button-green " ng-if="!player.isBlind"  ng-disabled="(player.isBlind)  || remainingPlayer<=1 ">Seen</button>                    
                     </div>
                 </div>
             </div>

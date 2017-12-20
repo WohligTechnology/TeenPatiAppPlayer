@@ -133,7 +133,6 @@ angular.module('starter.controllers', [])
     $scope.showWinner = data.showWinner;
 
     $scope.gameType = data.currentGameType;
-    $scope.communityCards = data.communityCards;
     $scope.remainingPlayer = _.filter(data.playerCards, function (player) {
       return player.isActive && !player.isFold;
     }).length;
@@ -155,7 +154,6 @@ angular.module('starter.controllers', [])
     $scope.player.isTurn = true;
     apiService.foldPlayer(function (data) {});
   };
-
 
   // io.socket.on("ShowWinner", $scope.showWinner);
 })
