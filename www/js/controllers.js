@@ -141,11 +141,6 @@ angular.module('starter.controllers', [])
     }
   }
 
-  $scope.makeSeen = function () {
-
-    apiService.makeSeen(function (data) {});
-  };
-
   $scope.moveTurn = function () {
     $scope.player.isTurn = true;
     apiService.moveTurn(function (data) {});

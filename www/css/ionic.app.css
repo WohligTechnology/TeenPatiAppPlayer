@@ -9891,7 +9891,58 @@ body {
   height: auto;
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center right; }
+  background-position: center right;
+  border: 12px solid transparent;
+  transition: all ease 300ms; }
+  .bgImg.animate-active {
+    -webkit-animation: animation-active-color 3s infinite;
+    /* Safari 4+ */
+    -moz-animation: animation-active-color 3s infinite;
+    /* Fx 5+ */
+    -o-animation: animation-active-color 3s infinite;
+    /* Opera 12+ */
+    animation: animation-active-color 3s infinite;
+    /* IE 10+, Fx 29+ */ }
+
+@-webkit-keyframes animation-active-color {
+  0% {
+    border-color: red; }
+  40% {
+    border-color: green; }
+  80% {
+    border-color: yellow; }
+  100% {
+    border-color: red; } }
+
+@-moz-keyframes animation-active-color {
+  0% {
+    border-color: red; }
+  40% {
+    border-color: green; }
+  80% {
+    border-color: yellow; }
+  100% {
+    border-color: red; } }
+
+@-o-keyframes animation-active-color {
+  0% {
+    border-color: red; }
+  40% {
+    border-color: green; }
+  80% {
+    border-color: yellow; }
+  100% {
+    border-color: red; } }
+
+@keyframes animation-active-color {
+  0% {
+    border-color: red; }
+  40% {
+    border-color: green; }
+  80% {
+    border-color: yellow; }
+  100% {
+    border-color: red; } }
 
 .mar5 {
   margin-top: 5%; }
