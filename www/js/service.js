@@ -55,8 +55,7 @@ myApp.factory('apiService', function ($http, $q, $timeout) {
     makeSeen: function (playerNo) {
       $http.post(adminurl + 'Player/makeSeen', {
         playerNo: playerNo
-      }).then(function (data) {
-      });
+      }).then(function (data) {});
     },
     saveAdminUrl: function (adminurl) {
       $.jStorage.set("adminurl", adminurl);
@@ -189,11 +188,8 @@ myApp.directive('animatedCard', function ($ionicGesture, $timeout, apiService) {
           event.gesture.distance = distanceDifference;
           var upDistance = event.gesture.distance * -1;
           var amountUp = (cardHeight - upDistance);
-          console.log(upDistance);
-          var playerNo = $.jStorage.get("player");
-          console.log(playerNo);
-          if (upDistance >= 10) {
-            apiService.makeSeen(playerNo);
+          if ((upDistance >= 10 && ($scope.player.isBlind == true))) {
+            apiService.makeSeen($scope.player.playerNo);
           }
           if (upDistance >= 0) {
             var dragPercent = upDistance / cardHeight * 100;
@@ -262,10 +258,9 @@ myApp.directive('animatedCardStack', function ($ionicGesture, apiService) {
         var upDistance = event.gesture.distance;
         var amountUp = (cardHeight - upDistance);
         var dragPercent = upDistance / cardHeight * 100;
-        console.log(dragPercent);
-        if (dragPercent > 4.5) {
-          console.log('seen');
-          apiService.makeSeen(function () {});
+        console.log()
+        if ((dragPercent > 4.5) && ($scope.player.isBlind == true)) {
+          apiService.makeSeen($scope.player.playerNo);
         }
         if (dragPercent < maxDragPercent) {
           var topPosition = (cardHeight - (1 * upDistance));
