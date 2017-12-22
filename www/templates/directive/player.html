@@ -95,7 +95,7 @@
         </button>
     </div>
 </div>
-<div class="text-center bottom-cards" ng-class="{'player-turn':player.isTurn,'not-active':!player.isActive,'player-fold':player.isFold}">
+<div class="text-center bottom-cards" ng-if="player.isActive" ng-class="{'player-turn':player.isTurn,'not-active':!player.isActive,'player-fold':player.isFold}">
     <div class="row" ng-if="!(isStack.value)">
         <div class="col" ng-if="!isStack.value && player.cards.length > 0">
             <animated-card card="{{player.cards[0]}}"></animated-card>

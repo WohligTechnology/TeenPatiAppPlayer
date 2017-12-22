@@ -42,6 +42,11 @@ myApp.factory('apiService', function ($http, $q, $timeout) {
         callback(data);
       });
     },
+    cancelSideShow: function (callback) {
+      $http.post(adminurl + 'Player/cancelSideShow').then(function (data) {
+        callback(data);
+      });
+    },
     doSideShow: function (callback) {
       $http.post(adminurl + 'Player/doSideShow').then(function (data) {
         callback(data);

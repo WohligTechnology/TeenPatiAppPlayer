@@ -17,11 +17,90 @@
     </div>
   </ion-content>
 </ion-view>-->
-
 <ion-modal-view class="show-page custom-modal-page ">
   <ion-content>
     <div class="all-in text-center" ng-class="isWinner">
       {{isWinner}}
+    </div>
+    <div class="list bg-color-white">
+      <a class="item header item-divider">
+        <span class="item-note">
+          Player 2 Won
+        </span>
+        <h2>Side Show </h2>
+      </a>
+      <a class="item result-item winner-section">
+        <div class="row">
+          <div class="col col-15">
+            <card card="7h" ng-style="style" width="60" height="80">
+              <!-- ngIf: style --><img ng-src="img/cards/7H.svg" ng-if="style" ng-style="style" alt="" class="full-image" src="img/cards/7H.svg"
+                style="width: 60px; height: 80px;">
+              <!-- end ngIf: style -->
+            </card>
+          </div>
+          <div class="col col-15">
+            <card card="Th" ng-style="style" width="60" height="80">
+              <!-- ngIf: style --><img ng-src="img/cards/TH.svg" ng-if="style" ng-style="style" alt="" class="full-image" src="img/cards/TH.svg"
+                style="width: 60px; height: 80px;">
+              <!-- end ngIf: style -->
+            </card>
+          </div>
+          <!-- ngIf: player.cards[2] -->
+          <div class="col col-15" ng-if="player.cards[2]">
+            <card card="9c" ng-style="style" width="60" height="80">
+              <!-- ngIf: style --><img ng-src="img/cards/9C.svg" ng-if="style" ng-style="style" alt="" class="full-image" src="img/cards/9C.svg"
+                style="width: 60px; height: 80px;">
+              <!-- end ngIf: style -->
+            </card>
+          </div>
+          <!-- end ngIf: player.cards[2] -->
+          <!-- ngIf: player.cards[3] -->
+          <div class="col col-50">
+            <h2>Player
+              <span class="big-font ng-binding">1</span>
+            </h2>
+            <p class=" big-font color-white ng-binding"> Sequence of 9 High</p>
+            <span class="badge badge-royal ng-binding">Rank 1</span>
+            <!--<span class="badge badge-royal">Rank {{player.winRank}}</span>-->
+          </div>
+        </div>
+      </a>
+      <a class="item result-item winner-section">
+        <div class="row">
+          <div class="col col-15">
+            <card card="7h" ng-style="style" width="60" height="80">
+              <!-- ngIf: style --><img ng-src="img/cards/7H.svg" ng-if="style" ng-style="style" alt="" class="full-image" src="img/cards/7H.svg"
+                style="width: 60px; height: 80px;">
+              <!-- end ngIf: style -->
+            </card>
+          </div>
+          <div class="col col-15">
+            <card card="Th" ng-style="style" width="60" height="80">
+              <!-- ngIf: style --><img ng-src="img/cards/TH.svg" ng-if="style" ng-style="style" alt="" class="full-image" src="img/cards/TH.svg"
+                style="width: 60px; height: 80px;">
+              <!-- end ngIf: style -->
+            </card>
+          </div>
+          <!-- ngIf: player.cards[2] -->
+          <div class="col col-15" ng-if="player.cards[2]">
+            <card card="9c" ng-style="style" width="60" height="80">
+              <!-- ngIf: style --><img ng-src="img/cards/9C.svg" ng-if="style" ng-style="style" alt="" class="full-image" src="img/cards/9C.svg"
+                style="width: 60px; height: 80px;">
+              <!-- end ngIf: style -->
+            </card>
+          </div>
+          <!-- end ngIf: player.cards[2] -->
+          <!-- ngIf: player.cards[3] -->
+          <div class="col col-50">
+            <h2>Player
+              <span class="big-font ng-binding">1</span>
+            </h2>
+            <p class=" big-font color-white ng-binding"> Sequence of 9 High</p>
+            <span class="badge badge-royal ng-binding">Rank 1</span>
+            <!--<span class="badge badge-royal">Rank {{player.winRank}}</span>-->
+          </div>
+        </div>
+      </a>
     </div>
   </ion-content>
 </ion-modal-view>

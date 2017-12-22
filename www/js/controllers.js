@@ -139,8 +139,14 @@ angular.module('starter.controllers', [])
     if (!$scope.player) {
       $state.go("tab");
     }
+    if (data.newGame) {
+      $scope.removeWinner();
+    }
   }
-
+  $scope.removeWinner = function () {
+    $scope.modal.hide();
+    $scope.modal1.hide();
+  };
   $scope.moveTurn = function () {
     $scope.player.isTurn = true;
     apiService.moveTurn(function (data) {});
@@ -148,6 +154,17 @@ angular.module('starter.controllers', [])
   $scope.foldPlayer = function () {
     $scope.player.isTurn = true;
     apiService.foldPlayer(function (data) {});
+  };
+  io.socket.on("cancelSideShow", function (data) {
+    console.log("data");
+    if (data.playerNo == selectPlayer.getPlayer()) {
+      $scope.modal.show();
+      console.log(data);
+    }
+  });
+  $scope.cancelSideShow = function () {
+    $scope.player.isTurn = true;
+    apiService.cancelSideShow(function (data) {});
   };
 
   // io.socket.on("ShowWinner", $scope.showWinner);
