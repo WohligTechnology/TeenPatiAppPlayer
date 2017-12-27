@@ -10485,7 +10485,7 @@ pre {
 .all-in {
   background: linear-gradient(#ffe22d, #f40300);
   font-size: 40px;
-  margin: 0 0 60px;
+  margin: 60px 0 60px;
   letter-spacing: 7px;
   line-height: 1.2;
   width: 100%;
@@ -10495,6 +10495,7 @@ pre {
   font-weight: 600; }
   .all-in.Won {
     font-size: 50px;
+    margin: 0 0 60px;
     padding: 40px;
     border-radius: 15px;
     line-height: 1.6;
@@ -10502,6 +10503,7 @@ pre {
   .all-in.Lose {
     font-size: 50px;
     padding: 40px;
+    margin: 0 0 60px;
     border-radius: 15px;
     line-height: 1.6;
     background: linear-gradient(#ff2d2d, #8c0201); }
@@ -10514,15 +10516,32 @@ pre {
 
 .modal-sure {
   background-color: #fff;
-  padding: 40px 20px;
-  display: table-cell;
-  vertical-align: middle; }
+  padding: 40px;
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center; }
+  .modal-sure.color-assertive {
+    background: #ef473a; }
+  .modal-sure.color-balanced {
+    background: #33cd5f; }
+  .modal-sure.color-assertive h4, .modal-sure.color-balanced h4 {
+    color: #fff;
+    font-weight: 600;
+    letter-spacing: 1px; }
   .modal-sure .modal-action-for {
     color: #ef473a;
     font-size: 1.2em; }
   .modal-sure h4 {
     font-size: 38px;
-    padding: 0 0 20px 0; }
+    padding: 10px 0;
+    width: 100%;
+    margin: 0; }
+  .modal-sure .sure-modal {
+    width: 100%; }
   .modal-sure .fnt-36 {
     font-size: 36px; }
   .modal-sure .button.button-balanced, .modal-sure .button.button-assertive {
@@ -10656,3 +10675,17 @@ card[card=NONE] {
   padding: 10px 5px;
   font-size: 26px;
   letter-spacing: 2px; }
+
+.list-custom .item-divider h2 {
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  padding: 6px 0; }
+
+.list-custom .bar-header {
+  background: #387ef5;
+  border: 0; }
+  .list-custom .bar-header h2 {
+    font-size: 28px;
+    color: #fff;
+    text-transform: uppercase; }

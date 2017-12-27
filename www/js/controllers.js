@@ -44,16 +44,42 @@ angular.module('starter.controllers', [])
 
 
 // })
-.controller('PlayerCtrl', function ($scope, $stateParams, selectPlayer, apiService, $interval, $state, $ionicModal) {
+.controller('PlayerCtrl', function ($scope, $stateParams, selectPlayer, apiService, $interval, $state, $ionicModal, $timeout) {
 
   io.socket.off("Update", winnerCtrlSocket.update);
 
-  //io.socket.off("Update", winnerCtrlSocket.update);  
   io.socket.on("sideShow", function (data) {
     if (data.data.toPlayer.playerNo == selectPlayer.getPlayer()) {
       $scope.modal1.show();
     }
+    if (data.data.fromPlayer.playerNo == selectPlayer.getPlayer()) {
+      $scope.modal3.show();
+      $scope.message = {
+        content: "Your request for the Side show has been sent!",
+        color: "color-balanced"
+      }
+    }
   });
+
+  io.socket.on("sideShowCancel", function (data) {
+    console.log(selectPlayer.getPlayer);
+    if (data.data.playerNo == selectPlayer.getPlayer()) {
+      $scope.modal3.show();
+      $scope.message = {
+        content: "Side show has been denied !!",
+        color: "color-assertive"
+      }
+      $timeout(function () {
+        $scope.modal3.hide();
+      }, 3000);
+    }
+  });
+  $scope.confirmModalClose = function () {
+    $scope.modal1.hide();
+  };
+  $scope.cancelSideShow = function () {
+    apiService.cancelSideShow(function (data) {});
+  };
 
   $scope.sideShow = function () {
     apiService.sideShow(function (data) {});
@@ -66,19 +92,25 @@ angular.module('starter.controllers', [])
   }
   $ionicModal.fromTemplateUrl('templates/modal/side-show.html', {
     scope: $scope,
-    //size:sm,
     animation: 'slide-in-up'
   }).then(function (modal) {
     $scope.modal1 = modal;
-    // $scope.modal.show();
   });
 
-  $scope.confirmModalClose = function (param) {
-    if (param != 'onlyClose') {
-      $scope.moveTurn();
-    }
-    $scope.modal1.hide();
-  };
+  $ionicModal.fromTemplateUrl('templates/modal/side-show-requested.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function (modal) {
+    $scope.modal2 = modal;
+  });
+
+  $ionicModal.fromTemplateUrl('templates/modal/toastr.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function (modal) {
+    $scope.modal3 = modal;
+  });
+
 
   $ionicModal.fromTemplateUrl('templates/modal/winner.html', {
     scope: $scope,
@@ -95,12 +127,19 @@ angular.module('starter.controllers', [])
     $scope.modal.hide();
   };
 
+  $scope.openSideShowModal = function () {
+    console.log("in");
+    $scope.modal2.show();
+  }
 
+  $scope.closeConfirmModal = function () {
+    $scope.modal2.hide();
+  }
   playerCtrlSocket.winner = function (data) {
-    console.log(data);
-    if (!($scope.player.isFold || !$scope.player.isActive)) {
+    $scope.sideShowData = data.data.sideShows;
+    if ($scope.player.isActive) {
       $scope.modal.show();
-      var isWinner = _.find(data.data, function (n) {
+      var isWinner = _.find(data.data.winners, function (n) {
         return n.playerNo == selectPlayer.getPlayer();
       });
       if (isWinner) {
@@ -116,6 +155,7 @@ angular.module('starter.controllers', [])
   playerCtrlSocket.update = function (data) {
     compileData(data);
     $scope.$apply();
+    $scope.modal3.hide();
   };
   io.socket.on("Update", playerCtrlSocket.update);
   io.socket.on("showWinner", playerCtrlSocket.winner);
@@ -131,7 +171,6 @@ angular.module('starter.controllers', [])
     });
 
     $scope.showWinner = data.showWinner;
-
     $scope.gameType = data.currentGameType;
     $scope.remainingPlayer = _.filter(data.playerCards, function (player) {
       return player.isActive && !player.isFold;
@@ -155,11 +194,10 @@ angular.module('starter.controllers', [])
     $scope.player.isTurn = true;
     apiService.foldPlayer(function (data) {});
   };
-  io.socket.on("cancelSideShow", function (data) {
-    console.log("data");
-    if (data.playerNo == selectPlayer.getPlayer()) {
-      $scope.modal.show();
-      console.log(data);
+  io.socket.on("sideShowCancel", function (data) {
+    console.log(data.data.playerNo);
+    if (data.data.playerNo == selectPlayer.getPlayer()) {
+      $scope.modal3.show();
     }
   });
   $scope.cancelSideShow = function () {

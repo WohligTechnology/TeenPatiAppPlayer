@@ -797,7 +797,7 @@ $dark:                            #444 !default;
         .all-in {
             background: linear-gradient(#ffe22d, #f40300);
             font-size: 40px;
-            margin: 0 0 60px;
+            margin: 60px 0 60px;
             letter-spacing: 7px;
             line-height: 1.2;
             width: 100%;
@@ -807,6 +807,7 @@ $dark:                            #444 !default;
             font-weight: 600;
             &.Won {
                 font-size: 50px;
+                margin: 0 0 60px;
                 padding: 40px;
                 border-radius: 15px;
                 line-height: 1.6;
@@ -815,6 +816,7 @@ $dark:                            #444 !default;
             &.Lose {
                 font-size: 50px;
                 padding: 40px;
+                margin: 0 0 60px;
                 border-radius: 15px;
                 line-height: 1.6;
                 background: linear-gradient(#ff2d2d, #8c0201);
@@ -831,16 +833,40 @@ $dark:                            #444 !default;
         
         .modal-sure {
             background-color: #fff;
-            padding: 40px 20px;
-            display: table-cell;
-            vertical-align: middle;
+            padding: 40px;
+            display: flex;
+            width: 100%;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+            &.color-assertive {
+                background: $assertive;
+            }
+            &.color-balanced {
+                background: $balanced;
+            }
+            &.color-assertive,
+            &.color-balanced {
+                h4 {
+                    color: #fff;
+                    font-weight: 600;
+                    letter-spacing: 1px;
+                }
+            }
             .modal-action-for {
                 color: #ef473a;
                 font-size: 1.2em;
             }
             h4 {
                 font-size: 38px;
-                padding: 0 0 20px 0;
+                padding: 10px 0;
+                width: 100%;
+                margin: 0;
+            }
+            .sure-modal {
+                width: 100%;
             }
             .fnt-36 {
                 font-size: 36px;
@@ -918,7 +944,8 @@ $dark:                            #444 !default;
         
         card[card=NONE] {
             opacity: 0;
-        } 
+        }
+        
         @media screen and (max-device-width: 750px) and (orientation: landscape) {
             .player-not-active {
                 font-size: 2em;
@@ -1012,4 +1039,24 @@ $dark:                            #444 !default;
             padding: 10px 5px;
             font-size: 26px;
             letter-spacing: 2px;
+        }
+        
+        .list-custom {
+            .item-divider {
+                h2 {
+                    font-size: 22px;
+                    font-weight: 600;
+                    letter-spacing: 2px;
+                    padding: 6px 0;
+                }
+            }
+            .bar-header {
+                background: $positive;
+                border: 0;
+                h2 {
+                    font-size: 28px;
+                    color: #fff;
+                    text-transform: uppercase;
+                }
+            }
         }
