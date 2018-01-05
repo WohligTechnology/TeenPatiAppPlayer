@@ -10417,7 +10417,7 @@ pre {
   height: 336px; }
   .join-cards .join-similar {
     position: absolute;
-    bottom: 15px;
+    bottom: 10px;
     width: 250px; }
   .join-cards .join-one {
     left: 42%;
@@ -10642,6 +10642,7 @@ card[card=NONE] {
     margin-bottom: 0; } }
 
 .dealer {
+  position: absolute;
   padding: 18px;
   top: 8px;
   text-transform: uppercase;
@@ -10649,7 +10650,10 @@ card[card=NONE] {
   right: 0;
   display: block;
   width: 100%;
-  text-align: right; }
+  text-align: right;
+  color: #fed631;
+  font-weight: 500;
+  text-shadow: 0px 0px 3px #fff; }
 
 @media only screen and (max-width: 480px) {
   .button {
@@ -10670,7 +10674,6 @@ card[card=NONE] {
   .cards-two {
     zoom: 0.4; }
   .dealer {
-    position: absolute;
     font-size: 18px;
     padding: 15px 0 !important; }
   .join-cards .join-one {
@@ -10689,7 +10692,7 @@ card[card=NONE] {
     width: 140px; }
   .winnersHead span.player-number {
     top: 18px;
-    right: 12px;
+    right: 11px;
     font-size: 21px; }
   .logo-left.pull-left {
     left: 20px;

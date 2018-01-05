@@ -1,6 +1,6 @@
 <ion-view>
     <ion-content class="bgImg" scroll="false">
-        <div class="player-all"  ng-class="{'animate-active':player.isTurn}">
+        <div class="player-all" ng-class="{'animate-active':player.isTurn}">
             <!--<div class="marb-30 changeTab" ui-sref='tab'>
                 <button class="">
                     <i class="fa fa-info-circle" aria-hidden="true"></i>
@@ -11,11 +11,11 @@
                 <img src="img/logo.png" alt="" class="full-image">
             </div>
             <div class="marb-30 changeTab text-center">
-                                <h2 class="winnersHead">
+                <h2 class="winnersHead">
                     <img src="img/title.png" alt="">
                     <span class="player-number">{{player.playerNo}}</span>
                 </h2>
-                <h2 class=" winnersHead dealer"  ng-if="player.isDealer">Dealer</h2>
+                <h2 class=" winnersHead dealer" ng-if="player.isDealer">Dealer</h2>
                 <!--<h2 class="winnersHead">
                     <img src="img/title.png" alt="">
                     <span class="player-number">{{player.playerNo}}</span>
@@ -48,7 +48,7 @@
                 <div class="col-25 text-center">
                     <div class="padding-horizontal">
                         <button class="button button-block btn-start button-red " ng-if="player.isBlind" ng-disabled="(!player.isBlind)  || remainingPlayer<=1 ">Blind</button>
-                        <button class="button button-block btn-start button-green " ng-if="!player.isBlind"  ng-disabled="(player.isBlind)  || remainingPlayer<=1 ">Seen</button>                    
+                        <button class="button button-block btn-start button-green " ng-if="!player.isBlind" ng-disabled="(player.isBlind)  || remainingPlayer<=1 ">Seen</button>
                     </div>
                 </div>
             </div>

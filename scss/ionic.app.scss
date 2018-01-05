@@ -715,7 +715,7 @@ $dark:                            #444 !default;
             height: 336px;
             .join-similar {
                 position: absolute;
-                bottom: 15px;
+                bottom: 10px;
                 width: 250px;
             }
             .join-one {
@@ -995,6 +995,7 @@ $dark:                            #444 !default;
         }
         
         .dealer {
+            position: absolute;
             padding: 18px;
             top: 8px;
             text-transform: uppercase;
@@ -1003,6 +1004,9 @@ $dark:                            #444 !default;
             display: block;
             width: 100%;
             text-align: right;
+            color: #fed631;
+            font-weight: 500;
+            text-shadow: 0px 0px 3px #fff;
         }
         
         @media only screen and (max-width:480px) {
@@ -1029,7 +1033,6 @@ $dark:                            #444 !default;
                 zoom: 0.4;
             }
             .dealer {
-                position: absolute;
                 font-size: 18px;
                 padding: 15px 0 !important;
             }
@@ -1056,7 +1059,7 @@ $dark:                            #444 !default;
                 }
                 span.player-number {
                     top: 18px;
-                    right: 12px;
+                    right: 11px;
                     font-size: 21px;
                 }
             }
