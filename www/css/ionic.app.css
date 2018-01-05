@@ -10671,6 +10671,12 @@ card[card=NONE] {
     position: absolute;
     font-size: 18px;
     padding: 15px 0 !important; }
+  .join-cards .join-one {
+    left: 38%; }
+  .join-cards .join-two {
+    left: 48%; }
+  .join-cards .join-three {
+    left: 58%; }
   .padding-right,
   .padding-horizontal {
     padding-right: 5px; }
