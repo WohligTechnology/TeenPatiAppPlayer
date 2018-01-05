@@ -698,13 +698,15 @@ $dark:                            #444 !default;
         }
         
         .button-green {
-            background: linear-gradient(#89ff00, #33540b);
-            border-width: 0px;
+            background: transparent;
+            border-color: #89ff00;
+            color: #89ff00;
         }
         
         .button-red {
-            background: linear-gradient(#ff0000, #520a0a);
-            border-width: 0px;
+            background: transparent;
+            border-color: #ff0000;
+            color: #ff0000;
         }
         
         .join-cards {
