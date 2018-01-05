@@ -10415,7 +10415,7 @@ pre {
   height: 336px; }
   .join-cards .join-similar {
     position: absolute;
-    top: 0;
+    bottom: 15px;
     width: 250px; }
   .join-cards .join-one {
     left: 42%;
@@ -10639,19 +10639,44 @@ card[card=NONE] {
   .marb20 {
     margin-bottom: 0; } }
 
+.dealer {
+  padding: 18px;
+  top: 8px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  right: 0;
+  display: block;
+  width: 100%;
+  text-align: right; }
+
 @media only screen and (max-width: 480px) {
   .button {
-    font-size: 10px;
-    letter-spacing: 1px;
-    padding: 0px 0px;
+    font-size: 10px !important;
+    letter-spacing: 1px !important;
+    padding: 0px 0px !important;
     line-height: 1;
     min-height: 35px; }
+  .modal-sure .button.button-balanced,
+  .modal-sure .button.button-assertive {
+    min-height: 45px; }
+  .modal-sure h4 {
+    font-size: 24px; }
   .player-not-active {
     font-size: 2em;
     font-weight: 100;
     padding: 15px 25px; }
   .cards-two {
-    zoom: 0.5; }
+    zoom: 0.4; }
+  .dealer {
+    position: absolute;
+    font-size: 18px;
+    padding: 15px 0 !important; }
+  .padding-right,
+  .padding-horizontal {
+    padding-right: 5px; }
+  .padding-left,
+  .padding-horizontal {
+    padding-left: 5px; }
   .winnersHead img {
     width: 140px; }
   .winnersHead span.player-number {
