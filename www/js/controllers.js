@@ -77,6 +77,7 @@ angular.module('starter.controllers', [])
   $scope.confirmModalClose = function () {
     $scope.modal1.hide();
   };
+
   $scope.cancelSideShow = function () {
     apiService.cancelSideShow(function (data) {});
   };
@@ -90,6 +91,7 @@ angular.module('starter.controllers', [])
   $scope.confirmModalOk = function () {
     apiService.doSideShow(function (data) {});
   }
+
   $ionicModal.fromTemplateUrl('templates/modal/side-show.html', {
     scope: $scope,
     animation: 'slide-in-up'
@@ -135,8 +137,10 @@ angular.module('starter.controllers', [])
   $scope.closeConfirmModal = function () {
     $scope.modal2.hide();
   }
+
   playerCtrlSocket.winner = function (data) {
     $scope.sideShowData = data.data.sideShows;
+    console.log($scope.sideShowData);
     if ($scope.player.isActive) {
       $scope.modal.show();
       var isWinner = _.find(data.data.winners, function (n) {
@@ -154,8 +158,14 @@ angular.module('starter.controllers', [])
 
   playerCtrlSocket.update = function (data) {
     compileData(data);
+    console.log(data);
     $scope.$apply();
+    $scope.modal.hide();
+    if (data.extra.newGame) {
+      $scope.modal.hide();
+    }
     $scope.modal3.hide();
+    $scope.modal1.hide();
   };
   io.socket.on("Update", playerCtrlSocket.update);
   io.socket.on("showWinner", playerCtrlSocket.winner);

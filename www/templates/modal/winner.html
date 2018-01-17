@@ -3,7 +3,7 @@
     <div class="all-in text-center" ng-class="isWinner"  ng-if="!(player.isFold)">
       {{isWinner}}
     </div>
-    <div class="list list-custom bg-color-white" >
+    <div class="list list-custom bg-color-white" ng-if="sideShowData.length > 0">
       <div class="item header bar-header item-divider">
         <h2>Side Show </h2>
       </div>

@@ -10280,6 +10280,7 @@ body {
 card.animatedCardOpen {
   position: absolute;
   left: 50%;
+  bottom: 0;
   transform: translate(-50%, 0%);
   width: 220px;
   overflow: hidden;
@@ -10298,6 +10299,7 @@ card.animatedCardOpen {
 card.animatedCard {
   position: absolute;
   left: 50%;
+  bottom: 0;
   transform: translate(-50%, 0%);
   width: 100%;
   overflow: hidden; }
@@ -10320,6 +10322,7 @@ pre {
   transition: all 1s ease; }
 
 .animate-active {
+  border: 10px solid transparent;
   -webkit-animation: animation-active-color 3s infinite;
   /* Safari 4+ */
   -moz-animation: animation-active-color 3s infinite;
@@ -10597,7 +10600,7 @@ pre {
     stroke-dashoffset: 20; } }
 
 .stack-button-holder {
-  margin-top: -7px;
+  margin-top: -10px;
   position: relative;
   z-index: 1; }
   .stack-button-holder button.button {
@@ -10704,7 +10707,7 @@ card[card=NONE] {
 .btn-start {
   font-size: 25px;
   padding: 0px 20px;
-  margin-top: 30px;
+  margin-top: -85px;
   width: 300px; }
 
 .platform-ipad .btn-start {
