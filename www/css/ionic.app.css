@@ -9892,7 +9892,7 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center right;
-  transition: all ease 300ms; }
+  transition: all ease 200ms; }
 
 .mar5 {
   margin-top: 5%; }
@@ -10302,7 +10302,8 @@ card.animatedCard {
   bottom: 0;
   transform: translate(-50%, 0%);
   width: 100%;
-  overflow: hidden; }
+  overflow: hidden;
+  transition: all ease 50ms; }
 
 .relative {
   position: relative; }
