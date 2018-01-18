@@ -63,6 +63,7 @@ angular.module('starter.controllers', [])
 
   io.socket.on("sideShowCancel", function (data) {
     console.log(selectPlayer.getPlayer);
+    $scope.modal2.hide();
     if (data.data.playerNo == selectPlayer.getPlayer()) {
       $scope.modal3.show();
       $scope.message = {
@@ -166,6 +167,7 @@ angular.module('starter.controllers', [])
     }
     $scope.modal3.hide();
     $scope.modal1.hide();
+    $scope.modal2.hide();
   };
   io.socket.on("Update", playerCtrlSocket.update);
   io.socket.on("showWinner", playerCtrlSocket.winner);
