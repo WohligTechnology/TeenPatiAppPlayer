@@ -1,47 +1,49 @@
 <ion-modal-view class="show-page custom-modal-page ">
   <ion-content>
-    <div class="all-in text-center" ng-class="isWinner"  ng-if="!(player.isFold)">
+    <div class="all-in text-center" ng-class="isWinner" ng-if="!(player.isFold)">
       {{isWinner}}
     </div>
-    <div class="list list-custom bg-color-white" ng-if="sideShowData.length > 0">
-      <div class="item header bar-header item-divider">
-        <h2>Side Show </h2>
-      </div>
-      <div ng-repeat="sidesideshow in sideShowData" ng-if="(player.playerNo == sidesideshow.fromPlayerNo) || (player.playerNo == sidesideshow.toPlayerNo)">
-        <div class="item item-divider">
-          <h2>From Player-{{sidesideshow.fromPlayerNo}} to Player-{{sidesideshow.toPlayerNo}}</h2>
-        </div>
-        <div class="item result-item winner-section" ng-repeat="sideShowWinner in sidesideshow.winner|orderBy:'winRank'">
-          <div class="row">
-            <div class="col col-66">
-              <div class="row">
-                <div class="col">
-                  <card card="{{sideShowWinner.cards[0]}}" ng-style="style" width="75" height="95">
-                  </card>
-                </div>
-                <div class="col">
-                  <card card="{{sideShowWinner.cards[1]}}" ng-style="style" width="75" height="95">
-                  </card>
-                </div>
-                <div class="col" ng-if="sideShowWinner.cards[2]">
-                  <card card="{{sideShowWinner.cards[2]}}" ng-style="style" width="75" height="95">
-                  </card>
-                </div>
-                <div class="col" ng-if="sideShowWinner.cards[3]">
-                  <card card="{{sideShowWinner.cards[3]}}" ng-style="style" width="75" height="95">
-                  </card>
+    <div class="list list-custom" ng-if="sideShowData.length > 0">
+      <div ng-repeat="sidesideshow in sideShowData">
+        <div class="bg-color-white" ng-if="(player.playerNo == sidesideshow.fromPlayerNo) || (player.playerNo == sidesideshow.toPlayerNo)">
+          <div class="item header bar-header item-divider">
+            <h2>Side Show </h2>
+          </div>
+          <div class="item item-divider">
+            <h2>From Player-{{sidesideshow.fromPlayerNo}} to Player-{{sidesideshow.toPlayerNo}}</h2>
+          </div>
+          <div class="item result-item winner-section" ng-repeat="sideShowWinner in sidesideshow.winner|orderBy:'winRank'">
+            <div class="row">
+              <div class="col col-66">
+                <div class="row">
+                  <div class="col">
+                    <card card="{{sideShowWinner.cards[0]}}" ng-style="style" width="75" height="95">
+                    </card>
+                  </div>
+                  <div class="col">
+                    <card card="{{sideShowWinner.cards[1]}}" ng-style="style" width="75" height="95">
+                    </card>
+                  </div>
+                  <div class="col" ng-if="sideShowWinner.cards[2]">
+                    <card card="{{sideShowWinner.cards[2]}}" ng-style="style" width="75" height="95">
+                    </card>
+                  </div>
+                  <div class="col" ng-if="sideShowWinner.cards[3]">
+                    <card card="{{sideShowWinner.cards[3]}}" ng-style="style" width="75" height="95">
+                    </card>
+                  </div>
                 </div>
               </div>
-            </div>
-            <!-- end ngIf: player.cards[2] -->
-            <!-- ngIf: player.cards[3] -->
-            <div class="col col-33">
-              <h2>Player
-                <span class="big-font">{{sideShowWinner.playerNo}}</span>
-              </h2>
-              <p class=" big-font color-white"> {{sideShowWinner.detail.desc}}</p>
-              <span class="badge badge-royal">Rank {{sideShowWinner.winRank}}</span>
-              <!--<span class="badge badge-royal">Rank {{player.winRank}}</span>-->
+              <!-- end ngIf: player.cards[2] -->
+              <!-- ngIf: player.cards[3] -->
+              <div class="col col-33">
+                <h2>Player
+                  <span class="big-font">{{sideShowWinner.playerNo}}</span>
+                </h2>
+                <p class=" big-font color-white"> {{sideShowWinner.detail.desc}}</p>
+                <span class="badge badge-royal">Rank {{sideShowWinner.winRank}}</span>
+                <!--<span class="badge badge-royal">Rank {{player.winRank}}</span>-->
+              </div>
             </div>
           </div>
         </div>
