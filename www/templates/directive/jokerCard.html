@@ -1,11 +1,56 @@
 <div ng-if="gameType.name == 'Joker'">
+  <div class="padding-horizontal">
     <h4 class="label">Joker Card</h4>
-    <div ng-if='gameType.jokerCard'>
-        <card class='community-card' class="" card='{{gameType.jokerCard}}' ng-style="style"  width="220" height="320">
-        </card>
+  </div>
+  <!-- <div class = "text-center">Joker Card </div> -->
+  <div ng-if="gameType.jokerCard" class="text-center">
+    <card
+      class="community-card"
+      class=""
+      card="{{ gameType.jokerCard }}"
+      ng-style="style"
+      width="220"
+      height="320"
+    >
+    </card>
+  </div>
+  <div ng-if="!gameType.jokerCard" class="text-center">
+    <card
+      class="community-card"
+      card="NONE"
+      ng-style="style"
+      width="220"
+      height="320"
+    >
+    </card>
+  </div>
+</div>
+
+<div ng-if="gameType.name == 'Zandu' || gameType.name == 'Flipper'  ">
+  <div class="padding-horizontal">
+    <h4 class="label">Joker Cards</h4>
+  </div>
+  <div class="display-inline" ng-repeat="jC in gameType.jokerCards">
+    <div class="text-center" ng-show="jC.status">
+      <card
+        class="community-card"
+        class=""
+        card="{{ jC.card }}"
+        ng-style="style"
+        width="70"
+        height="95"
+      >
+      </card>
     </div>
-    <div ng-if='!gameType.jokerCard'>
-        <card class="community-card" card='NONE' ng-style="style"  width="220" height="320">
-        </card>
+    <div class="text-center" ng-hide="jC.status">
+      <card
+        class="community-card"
+        card="DONE"
+        ng-style="style"
+        width="65"
+        height="95"
+      >
+      </card>
     </div>
+  </div>
 </div>
