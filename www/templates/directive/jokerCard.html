@@ -27,7 +27,7 @@
 </div>
 
 <div ng-if="gameType.name == 'Zandu' || gameType.name == 'Flipper'  ">
-  <div class="padding-horizontal">
+  <div class="padding-horizontal" ng-if="gameType.jokerCards.length > 0">
     <h4 class="label">Joker Cards</h4>
   </div>
   <div class="display-inline" ng-repeat="jC in gameType.jokerCards">
