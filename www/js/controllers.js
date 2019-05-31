@@ -154,12 +154,13 @@ angular
     };
 
     playerCtrlSocket.winner = function(data) {
+      console.log(_.cloneDeep(data), "New Winner");
       $scope.sideShowData = data.data.sideShows;
       console.log($scope.sideShowData);
       if ($scope.player.isActive) {
         $scope.modal.show();
         var isWinner = _.find(data.data.winners, function(n) {
-          return n.playerNo == selectPlayer.getPlayer();
+          return n.playerNo == selectPlayer.getPlayer() && n.winner;
         });
         if (isWinner) {
           $scope.isWinner = "You Won";
@@ -194,6 +195,7 @@ angular
         return player.playerNo == selectPlayer.getPlayer();
       });
 
+      console.log("$scope.showWinner", data);
       $scope.showWinner = data.showWinner;
       $scope.gameType = data.currentGameType;
       $scope.remainingPlayer = _.filter(data.playerCards, function(player) {
