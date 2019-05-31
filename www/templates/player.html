@@ -48,7 +48,7 @@
           <div class="padding-horizontal">
             <button
               class="button button-block btn-start button-golden "
-              ng-disabled="!player.isTurn || remainingPlayer<=1"
+              ng-disabled="(!player.isTurn || remainingPlayer<=1) || isWinner"
               ng-click="foldPlayer()"
             >
               Fold
