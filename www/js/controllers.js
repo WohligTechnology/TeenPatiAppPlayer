@@ -69,7 +69,6 @@ angular
     });
 
     io.socket.on("sideShowCancel", function(data) {
-      console.log(selectPlayer.getPlayer);
       $scope.modal2.hide();
       if (data.data.playerNo == selectPlayer.getPlayer()) {
         $scope.modal3.show();
@@ -145,7 +144,6 @@ angular
     };
 
     $scope.openSideShowModal = function() {
-      console.log("in");
       $scope.modal2.show();
     };
 
@@ -154,9 +152,7 @@ angular
     };
 
     playerCtrlSocket.winner = function(data) {
-      console.log(_.cloneDeep(data), "New Winner");
       $scope.sideShowData = data.data.sideShows;
-      console.log($scope.sideShowData);
       if ($scope.player.isActive) {
         $scope.modal.show();
         var isWinner = _.find(data.data.winners, function(n) {
@@ -172,7 +168,6 @@ angular
 
     playerCtrlSocket.update = function(data) {
       compileData(data);
-      console.log(data);
       $scope.$apply();
       $scope.modal.hide();
       $scope.newGame = data.extra.newGame;
@@ -194,8 +189,6 @@ angular
       $scope.player = _.find(data.playerCards, function(player) {
         return player.playerNo == selectPlayer.getPlayer();
       });
-
-      console.log("$scope.showWinner", data);
       $scope.showWinner = data.showWinner;
       $scope.gameType = data.currentGameType;
       $scope.remainingPlayer = _.filter(data.playerCards, function(player) {
@@ -221,7 +214,6 @@ angular
       apiService.foldPlayer(function(data) {});
     };
     io.socket.on("sideShowCancel", function(data) {
-      console.log(data.data.playerNo);
       if (data.data.playerNo == selectPlayer.getPlayer()) {
         $scope.modal3.show();
       }

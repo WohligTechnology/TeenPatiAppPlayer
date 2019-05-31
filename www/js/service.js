@@ -273,7 +273,6 @@ myApp.directive("animatedCardStack", function($ionicGesture, apiService) {
         var upDistance = event.gesture.distance;
         var amountUp = cardHeight - upDistance;
         var dragPercent = (upDistance / cardHeight) * 100;
-        console.log();
         if (dragPercent > 4.5 && $scope.player.isBlind == true) {
           apiService.makeSeen($scope.player.playerNo);
         }
