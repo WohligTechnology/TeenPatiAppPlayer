@@ -57,7 +57,13 @@ angular
 
     io.socket.on("sideShow", function(data) {
       if (data.data.toPlayer.playerNo == selectPlayer.getPlayer()) {
-        $scope.modal1.show();
+        $scope.modal3.show();
+        $scope.message = {
+          content:
+            "You have been requested for sideshow from Player" +
+            data.data.fromPlayer.playerNo,
+          color: "color-balanced"
+        };
       }
       if (data.data.fromPlayer.playerNo == selectPlayer.getPlayer()) {
         $scope.modal3.show();
@@ -208,6 +214,21 @@ angular
     $scope.moveTurn = function() {
       $scope.player.isTurn = true;
       apiService.moveTurn(function(data) {});
+    };
+    $ionicModal
+      .fromTemplateUrl("templates/modal/sure.html", {
+        scope: $scope,
+        animation: "slide-in-up"
+      })
+      .then(function(modal) {
+        $scope.modal4 = modal;
+      });
+    $scope.foldPlayerModal = function() {
+      $scope.modal4.show();
+    };
+
+    $scope.confirmFoldModalClose = function() {
+      $scope.modal4.hide();
     };
     $scope.foldPlayer = function() {
       $scope.player.isTurn = true;

@@ -10731,3 +10731,6 @@ card[card=NONE] {
 .display-inline {
   display: inline-block;
   margin-right: 2px; }
+
+.button-custom {
+  width: 200px; }
