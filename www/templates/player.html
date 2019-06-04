@@ -1,65 +1,37 @@
 <ion-view>
   <ion-content class="bgImg" scroll="false">
     <div class="player-all" ng-class="{'animate-active':player.isTurn}">
-      <!--<div class="marb-30 changeTab" ui-sref='tab'>
-                <button class="">
-                    <i class="fa fa-info-circle" aria-hidden="true"></i>
-                </button>
-                <h2 class="winnersHead">Player {{player.playerNo}}</h2>
-            </div>-->
-      <div class="logo-left pull-left">
-        <img src="img/logo.png" alt="" class="full-image" />
-      </div>
-      <div class="marb-30 changeTab text-center">
-        <h2 class="winnersHead">
-          <img src="img/title.png" alt="" />
-          <span class="player-number">{{ player.playerNo }}</span>
-        </h2>
-        <h2 class=" winnersHead dealer" ng-if="player.isDealer">Dealer</h2>
-      </div>
-      <div class="all-in text-center mr-tb30" ng-if="player.isFold">
-        Fold
-      </div>
-      <div class="all-in text-center mr-tb30" ng-if="!player.isActive">
-        Not Active
-      </div>
-      <div class="row mr-tb30" ng-if="!(player.isFold)">
-        <!--<div class="col-25 text-center">
-                    <div class="padding-horizontal">
-                        <button class="button button-block btn-start button-golden " ng-disabled="(!player.isTurn ? true : showWinner) || remainingPlayer<=1"
-                            ng-click="openSideShowModal()">Sideshow</button>
-                    </div>
-                </div>
-                <div class="col-25 text-center">
-                    <div class="padding-horizontal">
-                        <button class="button button-block btn-start button-golden " ng-disabled="!player.isTurn || remainingPlayer<=1" ng-click="moveTurn()">Chaal</button>
-                    </div>
-                </div>
-                <div class="col-25 text-center">
-                    <div class="padding-horizontal">
-                        <button class="button button-block btn-start button-red " ng-if="player.isBlind" ng-disabled="(!player.isBlind)  || remainingPlayer<=1 ">Blind</button>
-                        <button class="button button-block btn-start button-green " ng-if="!player.isBlind" ng-disabled="(player.isBlind)  || remainingPlayer<=1 ">Seen</button>
-                    </div>
-                </div>-->
-        <div class="col-25 text-center"></div>
-        <div class="col-25 text-center"></div>
-        <div class="col-25 text-center"></div>
-        <div class="col-25 text-center">
-          <div class="padding-horizontal">
+      <div class="marb-30 changeTab text-center bg-header">
+        <div class="row">
+          <div class="col"></div>
+          <div class="col">
+            <h2 class="head-title">
+                <div class="gametype text-center text-uppercase light padding">
+                    {{ gameType.name }}
+                  </div>
+            </h2>
+          </div>
+          <div class="col">
             <button
               class="button button-block btn-start button-golden "
-              ng-disabled="(!player.isTurn || remainingPlayer<=1) || isWinner"
+              ng-disabled="(!player.isTurn || remainingPlayer<=1) || isWinner && !(player.isFold)"
               ng-click="foldPlayerModal()"
             >
-              Fold
+              Pack
             </button>
           </div>
         </div>
       </div>
+      <div class="all-in text-center mr-tb30" ng-if="player.isFold">
+        Pack
+      </div>
+      <div class="all-in text-center mr-tb30" ng-if="!player.isActive">
+        Not Active
+      </div>
       <div class="player-not-active" ng-if="!player.isActive">
         <span>Not Active</span>
       </div>
-      <div class="text-center marb20" ng-hide="player.isFold">
+      <div class="marb20" ng-hide="player.isFold">
         <player ng-player="player" ng-game-type="gameType"></player>
       </div>
     </div>
