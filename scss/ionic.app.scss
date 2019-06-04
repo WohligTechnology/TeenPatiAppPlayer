@@ -19,6 +19,10 @@ $dark:                            #444 !default;
         $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
         @import "www/lib/ionic/scss/ionic";
         $assertive: #c30101 !default; // The path for our ionicons font files, relative to the built CSS in www/css
+        @font-face {
+            font-family: "Hero-bold";
+            src: url("../img/fonts/Hero-Bold.otf");
+          }
         body {
             -webkit-overflow-scrolling: touch;
         }
@@ -46,13 +50,15 @@ $dark:                            #444 !default;
             transition: (all ease 200ms);
         }
         .bg-header{
-            background-image: url(../img/background.png);
+            background-image: url(../img/app_top_stripe.png);
             width: auto;
             height: auto;
-            background-size: cover;
+            background-size: 100% 100%;
             background-repeat: no-repeat;
-            background-position: center right;
-        }
+            background-position: center center;
+            padding: 15px 10px;
+            margin: -10px -10px 10px;
+        }        
         .mar5 {
             margin-top: 5%;
         }
@@ -1077,7 +1083,7 @@ $dark:                            #444 !default;
         
         .btn-start {
             font-size: 25px;
-            padding: 0px 20px;
+            padding: 10px 20px;
             width: 300px;
         }
         
@@ -1120,24 +1126,31 @@ $dark:                            #444 !default;
         }
 
         .gametype {
-            // padding: 20px 0;
-            font-size: 3rem;
-            // line-height: 350%;
+            font-size: 2.3rem;
             text-transform: uppercase;
             font-weight: 600;
-          }
+            letter-spacing: 1px;
+            padding: 23px 0px 10px 18px;
+            text-shadow: 0 0 1vw #bb03d1, 0 0 3vw #bb03d1, 0 0 10vw #bb03d1,
+            0 0 10vw #bb03d1, 0 0 0.4vw #f4d8fa, 0.1vw 0.1vw 1vw #560966;
+          color: #f4d8fa;
+          font-family: "Hero-bold";
+        }
 
-          span.player-number {
-            background: goldenrod;
-            width: 60px;
-            height: 60px;
-            margin-top: 5px;
-            display: inline-block;
+          .player-number {
+            width: 160px;
+            height: 160px;
+            background: url('../img/number_bg.png') no-repeat center center;
+            background-size: 100% 100%;
             border-radius: 100%;
-            font-size: 40px !important;
+            font-size: 7rem;
             color: #fff;
-            padding: 6px 2px;
+            margin: 50px auto;
+            padding: 67px 0;
             font-weight: 900;
+            text-align: center;
+            mix-blend-mode: screen;
+            font-family: "Hero-bold";
         }
         .mb-5{
             margin-bottom: 5px;

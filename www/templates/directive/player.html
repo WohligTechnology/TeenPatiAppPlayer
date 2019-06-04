@@ -8,11 +8,11 @@
 </div>
 
 <div class="row">
-  <div class="col">
-    <div
-      class="join-joker"
-      ng-if="gameType.name == 'Joker' || gameType.name == 'Zandu' || gameType.name == 'Flipper'"
-    >
+  <div
+    class="col"
+    ng-if="gameType.name == 'Joker' || gameType.name == 'Zandu' || gameType.name == 'Flipper'"
+  >
+    <div class="join-joker">
       <joker ng-game-type="gameType"></joker>
     </div>
   </div>
