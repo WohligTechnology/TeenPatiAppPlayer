@@ -10608,7 +10608,8 @@ pre {
 
 .stack-button-holder {
   position: absolute;
-  top: 20px;
+  top: 26px;
+  left: 214px;
   z-index: 1; }
   .stack-button-holder button.button {
     background: #0537f6; }
@@ -10712,13 +10713,13 @@ card[card=NONE] {
     height: 80px !important; } }
 
 .btn-start {
-  font-size: 25px;
+  font-size: 30px;
   padding: 10px 20px;
   width: 300px; }
 
 .platform-ipad .btn-start {
   padding: 10px 5px;
-  font-size: 26px;
+  font-size: 30px;
   letter-spacing: 2px; }
 
 .list-custom .item-divider h2 {
@@ -10743,7 +10744,7 @@ card[card=NONE] {
   width: 200px; }
 
 .community-card img {
-  width: 140px;
+  width: 85px;
   margin-left: 5px; }
 
 .gametype {
@@ -10751,21 +10752,21 @@ card[card=NONE] {
   text-transform: uppercase;
   font-weight: 600;
   letter-spacing: 1px;
-  padding: 23px 0px 10px 18px;
+  padding: 23px 0px 10px 25%;
   text-shadow: 0 0 1vw #bb03d1, 0 0 3vw #bb03d1, 0 0 10vw #bb03d1, 0 0 10vw #bb03d1, 0 0 0.4vw #f4d8fa, 0.1vw 0.1vw 1vw #560966;
   color: #f4d8fa;
   font-family: "Hero-bold"; }
 
 .player-number {
-  width: 160px;
-  height: 160px;
+  width: 100px;
+  height: 100px;
   background: url("../img/number_bg.png") no-repeat center center;
   background-size: 100% 100%;
   border-radius: 100%;
-  font-size: 7rem;
+  font-size: 5rem;
   color: #fff;
-  margin: 50px auto;
-  padding: 67px 0;
+  margin-left: 10px;
+  padding: 35px 0;
   font-weight: 900;
   text-align: center;
   mix-blend-mode: screen;

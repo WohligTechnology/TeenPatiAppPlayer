@@ -3,13 +3,8 @@
     <div class="player-all" ng-class="{'animate-active':player.isTurn}">
       <div class="marb-30 changeTab text-center bg-header">
         <div class="row">
-          <div class="col"></div>
           <div class="col">
-            <h2 class="head-title">
-                <div class="gametype text-center text-uppercase light padding">
-                    {{ gameType.name }}
-                  </div>
-            </h2>
+            <div class="player-number">{{ player.playerNo }}</div>
           </div>
           <div class="col">
             <button
@@ -19,6 +14,13 @@
             >
               Pack
             </button>
+          </div>
+          <div class="col">
+            <h2 class="head-title">
+              <div class="gametype text-center text-uppercase light padding">
+                {{ gameType.name }}
+              </div>
+            </h2>
           </div>
         </div>
       </div>
