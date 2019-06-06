@@ -2,7 +2,6 @@
   <div class="padding-horizontal">
     <h4 class="label">Joker Card</h4>
   </div>
-  <!-- <div class = "text-center">Joker Card </div> -->
   <div ng-if="gameType.jokerCard" class="text-center">
     <card
       class="community-card"
@@ -17,7 +16,7 @@
 </div>
 
 <div ng-if="gameType.name == 'Zandu' || gameType.name == 'Flipper'">
-  <div class="padding-horizontal text-center mb-5">
+  <div class="padding-horizontal">
     <h4 class="label">Joker Cards</h4>
   </div>
   <div class="display-inline" ng-repeat="jC in gameType.jokerCards">

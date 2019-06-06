@@ -10454,7 +10454,7 @@ pre {
   color: #fff;
   font-weight: 600;
   letter-spacing: 2px;
-  font-size: 30px;
+  font-size: 24px;
   margin: 0; }
 
 .player-not-active {
@@ -10744,7 +10744,7 @@ card[card=NONE] {
   width: 200px; }
 
 .community-card img {
-  width: 85px;
+  width: 80px;
   margin-left: 5px; }
 
 .gametype {
