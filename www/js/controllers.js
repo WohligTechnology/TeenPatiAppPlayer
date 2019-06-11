@@ -161,16 +161,15 @@ angular
       $scope.sideShowData = data.data.sideShows;
       if ($scope.player.isActive) {
         $scope.modal.show();
-        var x = document.getElementById("../img/winner.mp3");
         var isWinner = _.find(data.data.winners, function(n) {
           return n.playerNo == selectPlayer.getPlayer() && n.winner;
         });
         if (isWinner) {
           $scope.isWinner = "You Won";
+          var x = document.getElementById("cardAudio");
           x.play();
         } else {
           $scope.isWinner = "You Lose";
-          x.pause();
         }
       }
     };
