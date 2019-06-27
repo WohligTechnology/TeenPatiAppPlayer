@@ -145,7 +145,7 @@ myApp.directive("joker", function() {
     scope: {
       gameType: "=ngGameType"
     },
-    templateUrl: "/templates/directive/jokerCard.html",
+    templateUrl: "templates/directive/jokerCard.html",
     link: function($scope, element, attr) {
       // $scope.style = {
       //   "margin-left": "10px"
