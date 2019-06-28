@@ -1116,13 +1116,18 @@ $dark:                            #444 !default;
         .display-inline {
             display: inline-block;
             margin-right: 2px;
+            &.card-right {
+                position: absolute;
+                right: 0;
+                top: 0;
+              }
         }
         .button-custom {
             width: 200px;
         }
 
         .community-card img {
-            width: 80px;
+            width: 90px;
             margin-left: 5px;
         }
 
