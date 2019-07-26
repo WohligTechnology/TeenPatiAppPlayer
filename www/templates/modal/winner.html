@@ -4,7 +4,7 @@
       {{isWinner}}
     </div>
     <div class="text-center padding">
-      <button class="button button-default button-royal" on-tap="removeWinner();" ng-hide="!(isWinner == 'You Won')">Close</button>
+      <button class="button button-default button-assertive button-custom fnt-24" on-tap="removeWinner();" ng-hide="!(isWinner == 'You Won')">Close</button>
     </div>
     <div class="list list-custom" ng-if="sideShowData.length > 0">
       <div ng-repeat="sidesideshow in sideShowData">
