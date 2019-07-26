@@ -3,6 +3,9 @@
     <div class="all-in text-center" ng-class="isWinner" ng-if="!(player.isFold)">
       {{isWinner}}
     </div>
+    <div class="text-center padding">
+      <button class="button button-default button-royal" on-tap="removeWinner();" ng-hide="!(isWinner == 'You Won')">Close</button>
+    </div>
     <div class="list list-custom" ng-if="sideShowData.length > 0">
       <div ng-repeat="sidesideshow in sideShowData">
         <div class="bg-color-white" ng-if="(player.playerNo == sidesideshow.fromPlayerNo) || (player.playerNo == sidesideshow.toPlayerNo)">

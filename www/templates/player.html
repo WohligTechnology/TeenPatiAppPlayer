@@ -12,7 +12,7 @@
           <div class="col">
             <button
               class="button button-block btn-start button-golden "
-              ng-disabled="(!player.isTurn || remainingPlayer<=1)"
+              ng-disabled="(!player.isTurn || remainingPlayer<=1) || isWinner == 'You Won'"
               ng-click="foldPlayerModal()"
             >
               Pack
