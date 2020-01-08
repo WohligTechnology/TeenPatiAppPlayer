@@ -33,8 +33,8 @@ myApp.factory("apiService", function($http, $q, $timeout) {
         callback(data);
       });
     },
-    foldPlayer: function(callback) {
-      $http.post(adminurl + "Player/fold").then(function(data) {
+    foldPlayer: function(data, callback) {
+      $http.post(adminurl + "Player/fold", data).then(function(data) {
         callback(data);
       });
     },

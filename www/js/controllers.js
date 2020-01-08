@@ -234,7 +234,16 @@ angular
     };
     $scope.foldPlayer = function() {
       $scope.player.isTurn = true;
-      apiService.foldPlayer(function(data) {});
+      let data = {};
+      data.playerNo = $scope.player.playerNo;
+      console.log(data);
+      apiService.foldPlayer(data, function(data) {
+        if (data.data == "Not your turn") {
+          console.log("Not your turn", data);
+        } else {
+          console.log("Packed sucessfully");
+        }
+      });
     };
     io.socket.on("sideShowCancel", function(data) {
       if (data.data.playerNo == selectPlayer.getPlayer()) {
