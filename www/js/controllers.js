@@ -92,17 +92,19 @@ angular
     };
 
     $scope.cancelSideShow = function() {
-      apiService.cancelSideShow(function(data) {});
+      $scope.promiseCancelSideShow = apiService.cancelSideShow(function(
+        data
+      ) {});
     };
 
     $scope.sideShow = function() {
-      apiService.sideShow(function(data) {});
+      $scope.promiseSideShow = apiService.sideShow(function(data) {});
     };
 
     //io.socket.off("Update", winnerCtrlSocket.update);
     // Modal Actions
     $scope.confirmModalOk = function() {
-      apiService.doSideShow(function(data) {});
+      $scope.promiseConfirmModalOk = apiService.doSideShow(function(data) {});
     };
 
     $ionicModal
@@ -215,7 +217,7 @@ angular
     };
     $scope.moveTurn = function() {
       $scope.player.isTurn = true;
-      apiService.moveTurn(function(data) {});
+      $scope.promiseMoveTurn = apiService.moveTurn(function(data) {});
     };
     $ionicModal
       .fromTemplateUrl("templates/modal/sure.html", {
@@ -237,7 +239,7 @@ angular
       let data = {};
       data.playerNo = $scope.player.playerNo;
       console.log(data);
-      apiService.foldPlayer(data, function(data) {
+      $scope.promiseFoldPlayer = apiService.foldPlayer(data, function(data) {
         if (data.data == "Not your turn") {
           console.log("Not your turn", data);
         } else {
@@ -252,7 +254,9 @@ angular
     });
     $scope.cancelSideShow = function() {
       $scope.player.isTurn = true;
-      apiService.cancelSideShow(function(data) {});
+      $scope.promiseCancelSideShow = apiService.cancelSideShow(function(
+        data
+      ) {});
     };
 
     // io.socket.on("ShowWinner", $scope.showWinner);
@@ -270,7 +274,9 @@ angular
     $scope.form.adminurl = apiService.getAdminUrl();
     $scope.form.player = selectPlayer.getPlayer();
     $scope.saveForm = function() {
-      apiService.saveAdminUrl($scope.form.adminurl);
+      $scope.promiseSaveAdminUrl = apiService.saveAdminUrl(
+        $scope.form.adminurl
+      );
       selectPlayer.setPlayer($scope.form.player);
       window.location.href = window.location.href.split("#")[0];
     };

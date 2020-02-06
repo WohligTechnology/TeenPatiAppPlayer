@@ -30,7 +30,8 @@
                 </select>
             </label>
             <div class="text-center padding">
-                <button class="button button-default button-start" on-tap="saveForm();" ng-disabled="!(form.adminurl && form.player)">Submit</button>
+                <button class="button button-default button-start" on-tap="saveForm();"
+                    promise-btn="promiseSaveAdminUrl" ng-disabled="!(form.adminurl && form.player)">Submit</button>
             </div>
         </div>
     </ion-content>

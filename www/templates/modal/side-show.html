@@ -1,17 +1,21 @@
 <ion-modal-view class="show-page custom-modal-page ">
     <ion-content>
         <div class="modal-sure text-center">
-            <h4>Are you sure you want to go for 
-                    <span class="modal-action-for"> Side Show  </span>?
-               
+            <h4>Are you sure you want to go for
+                <span class="modal-action-for"> Side Show </span>?
+
             </h4>
             <div class="sure-modal">
                 <div class="row">
                     <div class="col col-50 text-center">
-                        <button class="button button-balanced button-custom button-block fnt-36" ng-click="confirmModalOk();confirmModalClose('onlyClose');">Accept</button>
+                        <button class="button button-balanced button-custom button-block fnt-36"
+                            ng-click="confirmModalOk();confirmModalClose('onlyClose');"
+                            promise-btn="promiseConfirmModalOk">Accept</button>
                     </div>
                     <div class="col col-50 text-center">
-                        <button class="button button-assertive button-custom button-block fnt-36" ng-click="cancelSideShow();confirmModalClose();">Reject</button>
+                        <button class="button button-assertive button-custom button-block fnt-36"
+                            ng-click="cancelSideShow();confirmModalClose();"
+                            promise-btn="promiseCancelSideShow">Reject</button>
                     </div>
                 </div>
             </div>
